@@ -4,7 +4,17 @@
 int			main(void)
 {
 
+/*	printf("This is a simple\nnew test\n");
+	ft_printf("This is a Tsimple\nnew test\n");
 
-	ft_printf("hello %s world %s today %s is shining", "test1", "test2", "test3"); 
+	ft_putchar(10);
+	printf("");
+	ft_printf("");
+
+	ft_putchar(10);
+	printf("\n");
+	ft_printf("\n");
+*/
+
 	return (0);
 }
