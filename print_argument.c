@@ -6,13 +6,13 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 23:02:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/11/30 23:54:36 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/01 20:18:14 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_print_formated_argument(va_list ap, const char *string, size_t jump)
+int			ft_print_formated_argument(va_list ap, const char *string, size_t jump)
 {
 	int		d;
 	char	c;
@@ -37,5 +37,6 @@ void		ft_print_formated_argument(va_list ap, const char *string, size_t jump)
 		}
 		string++;
 		jump--;
-	}	
+	}
+	return (0);
 }

@@ -4,7 +4,6 @@
 
 int		main(void)
 {
-	_FUNCTION_IN_TEST("ft_printf");
 
 
 	char *E1;
@@ -89,8 +88,8 @@ int		main(void)
 	printf(RED"hello %s\n", "world");
 	ft_printf(YEL "salut %s\n", "monde");
 	printf(YEL "salut %s\n", "monde");
-	ft_printf(BLU "salut %s" CYN "vous allz bien ?\n" YEL RED "ROUGE\n", "la compagnie");
-	printf(BLU "salut %s" CYN "vous allz bien ?\n" YEL RED "ROUGE\n", "la compagnie");
+	ft_printf(BLU "salut %s" CYN "%svous allz bien ?\n" YEL RED "ROUGE\n", "la compagnie", "test");
+	printf(BLU "salut %s" CYN "%svous allz bien ?\n" YEL RED "ROUGE\n", "la compagnie", "test");
 
 	return (0);
 }

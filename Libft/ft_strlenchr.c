@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 16:10:54 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/01 16:12:00 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/01 20:22:42 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t		ft_strlenchr(const char *s, char c)
 	size_t	i;
 
 	i = 0;
-	while (*s++ && *s != c)
+	while (*s && *s++ != c)
 		i++;
 	return (i);
 }

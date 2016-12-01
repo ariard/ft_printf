@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/01 16:45:11 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/01 20:29:53 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int				ft_check_formater(const char *format)
 	return (0);
 }
 
-int				ft_check_couleur(const char *format)
+/*int				ft_check_couleur(const char *format)
 {
 	char		*new;
 	size_t		len;
@@ -49,31 +49,28 @@ int				ft_check_couleur(const char *format)
 		ft_putstr(WHT);
 	ft_strdel(&new);
 	return (len);
-}
+}*/
 
 int				ft_printf(const char *format, ...)
 {
 	va_list 	ap;
 	size_t		len;
+	int			n;
 
+	n = 0;
 	va_start(ap, format);
 	while (*format)
 	{
-		if (*format == 92)
-		{
-			len = ft_check_couleur(format);
-			while (len--)
-				format++;
-		}
 		if (*format == '%')
 			if ((len = ft_check_formater(format)))
 			{
-				ft_print_formated_argument(ap, format, len);
-				while (len--)
-					format++;
+				n += ft_print_formated_argument(ap, format, len);
+				format += len;
 			}
-		if (*format != '%')
-			ft_putchar(*format++);
+		len = ft_strlenchr(format, '%');
+		write(1, format, len);
+		format += len;
 	}
-	return (0);
+	va_end(ap);
+	return (n);
 }

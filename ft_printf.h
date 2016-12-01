@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/01 16:30:58 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/01 20:17:16 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include "libft/includes/libft.h"
-# include "project.h"
 # include "stdarg.h"
 
 #define RESET "\x1B[0m"
@@ -28,6 +27,6 @@
 
 int		ft_printf(const char *format, ...);
 
-void	ft_print_formated_argument(va_list ap, const char *format, size_t jump);
+int		ft_print_formated_argument(va_list ap, const char *format, size_t jump);
 
 #endif
