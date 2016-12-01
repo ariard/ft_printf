@@ -6,15 +6,15 @@
 #    By: ariard <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/30 19:44:10 by ariard            #+#    #+#              #
-#    Updated: 2016/11/30 23:54:22 by ariard           ###   ########.fr        #
+#    Updated: 2016/12/01 16:52:44 by ariard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= libftprintf.a
 
-SRC= main.c printf.c print_argument.c ./Libft/ft_putchar.c ./Libft/ft_putstr.c ./Libft/ft_putnbr.c
+SRC= main.c printf.c print_argument.c ./Libft/ft_putchar.c ./Libft/ft_putstr.c ./Libft/ft_putnbr.c ./Libft/ft_strchrcpy.c ./Libft/ft_strcmp.c ./Libft/ft_strdel.c ./Libft/ft_strlenchr.c ./Libft/ft_strnew.c ./Libft/ft_bzero.c 
 SRC2= main_test.c printf.c print_argument.c ./Libft/ft_putchar.c ./Libft/ft_putstr.c ./Libft/ft_putnbr.c
-OBJ= main.o printf.o print_argument.o ft_putchar.o ft_putstr.o ft_putnbr.o
+OBJ= main.o printf.o print_argument.o ft_putchar.o ft_putstr.o ft_putnbr.o ft_strchrcpy.o ft_strcmp.o ft_strdel.o ft_strlenchr.o ft_strnew.o ft_bzero.o
 OBJ2= main_test.o printf.o print_argument.o ft_putchar.o ft_putstr.o ft_putnbr.o
 HEADER= ft_printf.h
 FLAGS= -Wall -Wextra -Werror

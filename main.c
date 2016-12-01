@@ -79,6 +79,19 @@ int		main(void)
 	ft_printf("%c%c%c%c%c%c%c%c\n", 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h');
 	printf("%c%c%c%c%c%c%c%c\n", 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h');
 
+	printf("\nprint color\n\n");
+
+	E1 = "Fail at red";
+	E2 = "Fail at yellow";
+	E2 = "Fail at blu-cyn and yelred";
+
+	ft_printf(RED "hello %s\n", "world");
+	printf(RED"hello %s\n", "world");
+	ft_printf(YEL "salut %s\n", "monde");
+	printf(YEL "salut %s\n", "monde");
+	ft_printf(BLU "salut %s" CYN "vous allz bien ?\n" YEL RED "ROUGE\n", "la compagnie");
+	printf(BLU "salut %s" CYN "vous allz bien ?\n" YEL RED "ROUGE\n", "la compagnie");
+
 	return (0);
 }
 

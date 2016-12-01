@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_params.c                              :+:      :+:    :+:   */
+/*   ft_strlenchr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/23 15:32:59 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/01 15:55:53 by ariard           ###   ########.fr       */
+/*   Created: 2016/12/01 16:10:54 by ariard            #+#    #+#             */
+/*   Updated: 2016/12/01 16:12:00 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_dlist	*ft_list_push_params(int argc, char **argv)
+size_t		ft_strlenchr(const char *s, char c)
 {
-	t_dlist		**begin_list;
+	size_t	i;
 
-	begin_list = NULL;
-	while (argc--)
-	{
-		ft_list_push_front(begin_list, argv);
-		argv++;
-	}
-	return (*begin_list);
+	i = 0;
+	while (*s++ && *s != c)
+		i++;
+	return (i);
 }

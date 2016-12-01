@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/11/30 23:54:26 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/01 16:45:11 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,51 @@ int				ft_check_formater(const char *format)
 	return (0);
 }
 
+int				ft_check_couleur(const char *format)
+{
+	char		*new;
+	size_t		len;
+
+	len = ft_strlenchr(format, 'm');
+	new = ft_strnew(len);
+	ft_strchrcpy(new, format, 'm');
+	if (ft_strcmp(new, RESET) == 0)
+		ft_putstr(RESET);
+	else if (ft_strcmp(new, RED) == 0)
+		ft_putstr(RED);
+	else if (ft_strcmp(new, GRN) == 0)
+		ft_putstr(GRN);
+	else if (ft_strcmp(new, YEL) == 0)
+		ft_putstr(YEL);
+	else if (ft_strcmp(new, BLU) == 0)
+		ft_putstr(BLU);
+	else if (ft_strcmp(new, CYN) == 0)
+		ft_putstr(CYN);
+	else if (ft_strcmp(new, WHT) == 0)
+		ft_putstr(WHT);
+	ft_strdel(&new);
+	return (len);
+}
+
 int				ft_printf(const char *format, ...)
 {
 	va_list 	ap;
-	size_t		jump;
+	size_t		len;
 
-	(void)ap;
 	va_start(ap, format);
 	while (*format)
 	{
+		if (*format == 92)
+		{
+			len = ft_check_couleur(format);
+			while (len--)
+				format++;
+		}
 		if (*format == '%')
-			if ((jump = ft_check_formater(format)))
+			if ((len = ft_check_formater(format)))
 			{
-				ft_print_formated_argument(ap, format, jump);
-				while (jump--)
+				ft_print_formated_argument(ap, format, len);
+				while (len--)
 					format++;
 			}
 		if (*format != '%')
