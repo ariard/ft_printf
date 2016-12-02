@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/04 15:36:18 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/02 14:44:33 by ariard           ###   ########.fr       */
+/*   Created: 2016/12/02 14:33:15 by ariard            #+#    #+#             */
+/*   Updated: 2016/12/02 14:52:48 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_putstr(char const *s)
+size_t				ft_intlen(int d)
 {
-	if (!s)
-		return (0);
-	write(1, s, ft_strlen(s));
-	return (ft_strlen(s));
+	int				len;
+	long long		nb;
+
+	len = 0;
+	nb = d;
+	if (nb < 0)
+	{
+		len++;
+		nb *= -1;
+	}
+	if (nb == 0)
+		len++;
+	while (nb)
+	{
+		len++;
+		nb = nb / 10;
+	}
+	return (len);
 }

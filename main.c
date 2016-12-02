@@ -13,7 +13,7 @@ int		main(void)
 	char *T2;
 	char *T3;
 
-	printf(WHT "\nno conv - simple test\n\n");
+
 
 	E1 = "Fail at simple test";
 	E2 = "Fail at empty string";
@@ -73,11 +73,17 @@ int		main(void)
 	E1 = "Fail at one conv char";
 	E2 = "Fail at multi conv char";
 
+	char abc;
+
 	ft_printf("%c\n", 'A');
 	printf("%c\n", 'A');
-	ft_printf("%c%c%c%c%c%c%c%c\n", 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h');
+	abc = ft_printf("%c%c", '4', '2');
+	printf("%c%c", '4', '2');
+	printf("\n%d vs 2\n", abc);
+	abc = ft_printf("%c%c%c%c%c%c%c%c\n", 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h');
 	printf("%c%c%c%c%c%c%c%c\n", 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h');
-
+	printf("%d vs 9", abc);
+	
 	printf("\nprint color\n\n");
 
 	E1 = "Fail at red";
@@ -91,6 +97,44 @@ int		main(void)
 	ft_printf(BLU "salut %s" CYN "%svous allz bien ?\n" YEL RED "ROUGE\n", "la compagnie", "test");
 	printf(BLU "salut %s" CYN "%svous allz bien ?\n" YEL RED "ROUGE\n", "la compagnie", "test");
 
+	printf(RESET "gestion des erreurs\n\n");
+
+	char *s1;
+	char *s2;
+
+	s1 = "hello world\n";
+	s2 = "a toi mom frere mon lecteur\n";
+
+	ft_printf(s1);
+	printf(s1);
+	ft_printf(s2);
+	printf(s2);
+	ft_printf("hello %s\n", NULL);
+	printf("hello %s\n", NULL);
+	ft_printf("hello : %d\n", NULL);
+	printf("hello : %d\n", NULL);
+
+	
+
+
+	
+	int	a;
+	int b; 
+	int c;
+	int d;
+
+	a = ft_printf("\n");
+	printf("\n");
+	printf("%d vs 1\n", a);
+	b = ft_printf("test");
+	printf("test");
+	printf("%d vs 4\n", b);
+	c = ft_printf("test\n");
+	printf("test\n");
+	printf("%d vs 5\n", c);
+	ft_printf("1234");
+	d = printf("1234");
+	printf("%d vs 4\n", d);
 	return (0);
 }
 
