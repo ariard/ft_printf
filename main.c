@@ -137,28 +137,41 @@ int		main(void)
 	printf("%d vs 4\n", d);
 	return (0); 
 	
-*/	printf("parsing flags precedence");
+	printf("parsing flags precedence");
 	
 
-	ft_printf("my number : % d\n", 12345);
+	ft_printf("my number : %+ d\n", 12345);
 	printf(" \n");
 
 
-	ft_printf("my number : %+d\n", 6789);
+	ft_printf("my number : % +d\n", 6789);
 	printf("+\n");
 
 
-	ft_printf("my number : %-d\n", 34653);
+	ft_printf("my number : %+-d\n", 34653);
 	printf("-\n");
 
 
-	ft_printf("my number : %#x\n", 34653);
+	ft_printf("my number : %+#x\n", 34653);
 	printf("#\n");
 
 
-	ft_printf("my number : %0d\n", 34653);
+	ft_printf("my number : %------+0d\n", 34653);
 	printf("0\n");
-	
+*/	
+	printf("parsing flags width");
+
+	ft_printf("%789d\n", 100);
+	printf("789\n");
+	ft_printf("%.34567d\n", 100);
+	printf("34567\n");
+	ft_printf("%123.d\n", 100);
+	printf("123\n");
+	ft_printf("%987.1234d\n", 100);
+	printf("987\n");
+	printf("1234\n");
+	ft_printf("%55d\n", 100);
+	printf("55\n");
 	return (0);
 }
 
