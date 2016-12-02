@@ -5,7 +5,7 @@
 int		main(void)
 {
 
-
+/*
 	char *E1;
 	char *E2;
 	char *E3;
@@ -135,6 +135,30 @@ int		main(void)
 	ft_printf("1234");
 	d = printf("1234");
 	printf("%d vs 4\n", d);
+	return (0); 
+	
+*/	printf("parsing flags precedence");
+	
+
+	ft_printf("my number : % d\n", 12345);
+	printf(" \n");
+
+
+	ft_printf("my number : %+d\n", 6789);
+	printf("+\n");
+
+
+	ft_printf("my number : %-d\n", 34653);
+	printf("-\n");
+
+
+	ft_printf("my number : %#x\n", 34653);
+	printf("#\n");
+
+
+	ft_printf("my number : %0d\n", 34653);
+	printf("0\n");
+	
 	return (0);
 }
 

@@ -6,23 +6,41 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/02 15:53:05 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/02 19:32:28 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int				ft_check_formater(const char *format)
+void			ft_nothing(t_flag *test, va_list test2)
 {
-	format++;
-	if (*format == 'd')
-		return (2);
-	if (*format == 's')
-		return (2);
-	if (*format == 'c')
-		return (2);
-	return (0);
+	(void)test;
+	(void)test2;
+}
+
+t_print			*ft_create_print(char c, void (*f)(t_flag *, va_list))
+{
+	t_print		*rules;
+
+//	rules = (t_print *)malloc(sizeof(t_print));
+	rules = ft_memalloc(sizeof(rules));
+	if (rules)
+	{
+		rules->c = c;
+		rules->f = (*f);
+	}
+	return (rules);
+}
+
+void			ft_gen_tab_print(t_print *tab[])
+{
+	tab[0] = ft_create_print('#', &ft_nothing);
+	tab[1] = ft_create_print(' ', &ft_nothing);
+	tab[2] = ft_create_print('+', &ft_nothing);
+	tab[3] = ft_create_print('-', &ft_nothing);
+	tab[4] = ft_create_print('0', &ft_nothing);
+	tab[5] = NULL;
 }
 
 int				ft_printf(const char *format, ...)
@@ -30,19 +48,22 @@ int				ft_printf(const char *format, ...)
 	va_list 	ap;
 	size_t		len;
 	int			n;
+	t_print		*tab[5];
 
 	n = 0;
-	va_start(ap, format);
+	ft_gen_tab_print(tab);
+	va_start(ap, format);	
 	while (*format)
 	{
 		if (*format == '%')
-			if ((len = ft_check_formater(format)))
 			{
-				n += ft_print_formated_argument(ap, format, len);
+				len = ft_parse_flag(format, tab);
+//				ft_print_formated_argument(ap, format, len);
+				n += len;
 				format += len;
 			}
 		len = ft_strlenchr(format, '%');
-		write(1, format, len);
+//		write(1, format, len);
 		n += len;
 		format += len;
 	}

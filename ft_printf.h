@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/02 15:43:51 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/02 18:41:04 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,24 @@
 #define CYN "\x1B[36m"
 #define WHT "\x1B[37m"
 
+typedef struct		s_flag
+{
+	char			precedence;
+	int				min_witdh;
+	int				max_witdh;
+	char			type;
+}					t_flag;
+
+typedef struct		s_print
+{
+	char			c;
+	void			(*f)(t_flag *, va_list);
+}					t_print;
+
 int		ft_printf(const char *format, ...);
 
 int		ft_print_formated_argument(va_list ap, const char *format, size_t jump);
+
+int		ft_parse_flag(const char *format, t_print *tab[]);
 
 #endif

@@ -6,15 +6,15 @@
 #    By: ariard <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/30 19:44:10 by ariard            #+#    #+#              #
-#    Updated: 2016/12/02 14:51:18 by ariard           ###   ########.fr        #
+#    Updated: 2016/12/02 18:50:34 by ariard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= libftprintf.a
 
-SRC= main.c printf.c print_argument.c ./Libft/ft_putchar.c ./Libft/ft_putstr.c ./Libft/ft_putnbr.c ./Libft/ft_strchrcpy.c ./Libft/ft_strcmp.c ./Libft/ft_strdel.c ./Libft/ft_strlenchr.c ./Libft/ft_strnew.c ./Libft/ft_bzero.c  ./Libft/ft_strchr.c  ./Libft/ft_strlen.c ./Libft/ft_intlen.c
+SRC= main.c printf.c print_argument.c  parse_flag.c ./Libft/ft_putchar.c ./Libft/ft_putstr.c ./Libft/ft_putnbr.c ./Libft/ft_strchrcpy.c ./Libft/ft_strcmp.c ./Libft/ft_strdel.c ./Libft/ft_strlenchr.c ./Libft/ft_strnew.c ./Libft/ft_bzero.c  ./Libft/ft_strchr.c  ./Libft/ft_strlen.c ./Libft/ft_intlen.c ./Libft/ft_memalloc.c
 
-OBJ= main.o printf.o print_argument.o ft_putchar.o ft_putstr.o ft_putnbr.o ft_strchrcpy.o ft_strcmp.o ft_strdel.o ft_strlenchr.o ft_strnew.o ft_bzero.o ft_strchr.o ft_strlen.o ft_intlen.o
+OBJ= main.o printf.o print_argument.o parse_flag.o ft_putchar.o ft_putstr.o ft_putnbr.o ft_strchrcpy.o ft_strcmp.o ft_strdel.o ft_strlenchr.o ft_strnew.o ft_bzero.o ft_strchr.o ft_strlen.o ft_intlen.o ft_memalloc.o
 
 HEADER= ft_printf.h
 FLAGS= #-Wall -Wextra -Werror
