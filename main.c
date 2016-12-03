@@ -163,7 +163,7 @@ int		main(void)
 	ft_printf("%55d\n", 100);
 	printf("55\n");
 
-*/
+
 	printf("parsing flags prom\n");
 	
 	ft_printf("%lld", 100);
@@ -181,6 +181,41 @@ int		main(void)
 	printf("z\n");
 	ft_printf("%jd", 100);
 	printf("j\n");
+
+*/
+	
+	printf("parsing flags type\n");
+
+	ft_printf("%a", 100);
+	ft_printf("%q", 100);
+	ft_printf("%s", 100);
+	printf("s\n");
+	ft_printf("%S", 100);
+	printf("S\n");
+	ft_printf("%p", 100);
+	printf("p\n");
+	ft_printf("%d", 100);
+	printf("d\n");
+	ft_printf("%D", 100);
+	printf("D\n");
+	ft_printf("%i", 100);
+	printf("i\n");
+	ft_printf("%o", 100);
+	printf("o\n");
+	ft_printf("%O", 100);
+	printf("O\n");
+	ft_printf("%u", 100);
+	printf("u\n");
+	ft_printf("%U", 100);
+	printf("U\n");
+	ft_printf("%x", 100);
+	printf("x\n");
+	ft_printf("%C", 100);
+	printf("C\n");
+	ft_printf("%X", 100);
+	printf("X\n");
+	ft_printf("%%", 100);
+	printf("%%");
 
 	return (0);
 }
