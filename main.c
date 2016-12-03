@@ -216,7 +216,6 @@ int		main(void)
 	printf("X\n");
 	ft_printf("%%", 100);
 	printf("%%");
-*/
 
 	printf("check validity\n");
 	
@@ -232,6 +231,16 @@ int		main(void)
 	printf("VRAI\n");
 	ft_printf("%123&sd", 100);
 	printf("FAUX\n");
+
+*/
+	printf("print argument\n");
+	
+	ft_printf("%#s");
+	ft_printf("%0100.d");
+	ft_printf("%w#100d");
+	ft_printf("%#U");
+	ft_printf("%100c");
+
 	return (0);
 }
 

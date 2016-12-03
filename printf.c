@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 16:03:23 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 19:57:03 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,14 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[15] = ft_create_print('x', &ft_nothing);
 	tab[16] = ft_create_print('X', &ft_nothing);
 	tab[17] = ft_create_print('C', &ft_nothing);
-	tab[18] = ft_create_print('%', &ft_nothing);
-	tab[19] = ft_create_print('y', &ft_nothing);
-	tab[20] = ft_create_print('w', &ft_nothing);
-	tab[21] = ft_create_print('l', &ft_nothing);
-	tab[22] = ft_create_print('h', &ft_nothing);
-	tab[23] = ft_create_print('z', &ft_nothing);
-	tab[24] = ft_create_print('j', &ft_nothing);
+	tab[18] = ft_create_print('c', &ft_nothing);
+	tab[19] = ft_create_print('%', &ft_nothing);
+	tab[20] = ft_create_print('y', &ft_nothing);
+	tab[21] = ft_create_print('w', &ft_nothing);
+	tab[22] = ft_create_print('l', &ft_nothing);
+	tab[23] = ft_create_print('h', &ft_nothing);
+	tab[24] = ft_create_print('z', &ft_nothing);
+	tab[25] = ft_create_print('j', &ft_nothing);
 }
 
 int				ft_printf(const char *format, ...)
@@ -67,18 +68,21 @@ int				ft_printf(const char *format, ...)
 	size_t		len;
 	int			n;
 	t_print		*tab[26];
+	t_flag		*flags;
 
 	n = 0;
 	ft_gen_tab_print(tab);
+	flags = ft_memalloc(sizeof(flags));
 	tab[25] = NULL;
 	va_start(ap, format);	
 	while (*format)
 	{
 		if (*format == '%')
 			{
-				if ((len = ft_parse_flag(format, tab)) == 0)
+				if ((len = ft_parse_flag(format, flags, tab)) == 0)
 					len = 1;
-//				ft_print_formated_argument(ap, format, len);
+				else
+					ft_print_formated_argument(ap, format, tab, flags);
 				n += len;
 				format += len;
 			}

@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 17:21:25 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 20:03:29 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int				ft_parse_prom(const char *format, t_flag *flags, t_print *tab[])
 {
 	int			i;
 
-	i = 21;
+	i = 20;
 	if (*format == 'l' && *(format + 1) == 'l')
 	{
 		flags->promotion = 'y';
@@ -42,8 +42,8 @@ int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
 {
 	int			i;
 
-	i = 0;
-	while (i < 19)
+	i = 5;
+	while (i < 20)
 	{
 		if (tab[i]->c == *format)
 			flags->type = *format;
@@ -53,3 +53,18 @@ int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
 		return (0);
 	return (1);
 }
+
+void			ft_solve_conflict(t_flag *flags)
+{
+	if (flags->precedence == '#' && (flags->type != 'x' || flags->type != 'X' || 
+		flags->type != 'o'))
+			flags->precedence = 0;
+	if (flags->precedence && (flags->type == 'c' || flags->type == 'C' || 
+		flags->type == 's' || flags->type == 'S'))
+			flags->precedence = 0;
+	if ((flags->min_width || flags->max_width) && (flags->type == 'c' || 
+		flags->type == 'C' || flags->type == 's' || flags->type == 'S'))	
+		flags->min_width = 0;
+}
+
+
