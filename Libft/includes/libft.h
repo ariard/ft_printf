@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 19:52:29 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/02 15:52:35 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 21:14:34 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ char				*ft_itoa(int n);
 int					ft_putchar(char c);
 
 int					ft_putstr(char const *s);
+
+int					ft_putstrn(char const *s, int n);
 
 void				ft_putendl(char const *s);
 

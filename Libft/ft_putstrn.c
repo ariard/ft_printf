@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstrn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 19:47:12 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 20:34:28 by ariard           ###   ########.fr       */
+/*   Created: 2016/12/03 20:36:31 by ariard            #+#    #+#             */
+/*   Updated: 2016/12/03 21:15:40 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-size_t	ft_strlen(const char *s)
+int		ft_putstrn(char const *s, int len)
 {
-	size_t		i;
-
-	i = 0;
-	while (*s++)
-		i++;
-	return (i);
+	if (!s)
+		return (0);
+	write(1, s, len);
+	return (len);
 }

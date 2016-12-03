@@ -232,7 +232,7 @@ int		main(void)
 	ft_printf("%123&sd", 100);
 	printf("FAUX\n");
 
-*/
+
 	printf("print argument\n");
 	
 	ft_printf("%#s");
@@ -240,6 +240,22 @@ int		main(void)
 	ft_printf("%w#100d");
 	ft_printf("%#U");
 	ft_printf("%100c");
+*/
+	printf("print char and string\n");
+
+	char	*p;
+
+	p = "string";
+	ft_printf("hello %s\n", "world");
+	printf("hello %s\n", "world");
+	ft_printf("salut %.10s\n", "comment ca va?");
+	printf("salut %.10s\n", "comment ca va?");
+	ft_printf("grosse phrase : %s\n", "abcdefghijklmnopqrstuvwxyz");
+	printf("grosse phrase : %s\n", "abcdefghiklmnopqrstuvwxyz");
+	ft_printf("char : %c\n", 'A');
+	printf("char : %c\n", 'A');
+//	ft_printf("pointer : %p\n", p);
+//	printf("pointer : %p\n", p);
 
 	return (0);
 }

@@ -6,20 +6,21 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 19:57:03 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 21:26:17 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-void			ft_nothing(t_flag *test, va_list test2)
+int			ft_nothing(t_flag *test, va_list test2)
 {
 	(void)test;
-	(void)test2;	
+	(void)test2;
+	return (0);
 }
 
-t_print			*ft_create_print(char c, void (*f)(t_flag *, va_list))
+t_print			*ft_create_print(char c, int (*f)(t_flag *, va_list))
 {
 	t_print		*rules;
 
@@ -39,9 +40,9 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[2] = ft_create_print('+', &ft_nothing);
 	tab[3] = ft_create_print('-', &ft_nothing);
 	tab[4] = ft_create_print('0', &ft_nothing);
-	tab[5] = ft_create_print('s', &ft_nothing);
+	tab[5] = ft_create_print('s', &ft_print_string);
 	tab[6] = ft_create_print('S', &ft_nothing);
-	tab[7] = ft_create_print('p', &ft_nothing);
+	tab[7] = ft_create_print('p', &ft_print_pointer);
 	tab[8] = ft_create_print('d', &ft_nothing);
 	tab[9] = ft_create_print('D', &ft_nothing);
 	tab[10] = ft_create_print('i', &ft_nothing);
@@ -52,7 +53,7 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[15] = ft_create_print('x', &ft_nothing);
 	tab[16] = ft_create_print('X', &ft_nothing);
 	tab[17] = ft_create_print('C', &ft_nothing);
-	tab[18] = ft_create_print('c', &ft_nothing);
+	tab[18] = ft_create_print('c', &ft_print_char);
 	tab[19] = ft_create_print('%', &ft_nothing);
 	tab[20] = ft_create_print('y', &ft_nothing);
 	tab[21] = ft_create_print('w', &ft_nothing);
@@ -79,15 +80,15 @@ int				ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 			{
-				if ((len = ft_parse_flag(format, flags, tab)) == 0)
+				if (ft_parse_flag(format, flags, tab) == 0)
 					len = 1;
 				else
-					ft_print_formated_argument(ap, format, tab, flags);
+					len = ft_print_formated_argument(ap, tab, flags);
 				n += len;
 				format += len;
 			}
 		len = ft_strlenchr(format, '%');
-//		write(1, format, len);
+		write(1, format, len);
 		n += len;
 		format += len;
 	}

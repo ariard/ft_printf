@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 19:44:44 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 21:13:43 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ typedef struct		s_flag
 typedef struct		s_print
 {
 	char			c;
-	void			(*f)(t_flag *, va_list);
+	int				(*f)(t_flag *, va_list);
 }					t_print;
 
 int		ft_printf(const char *format, ...);
 
-int		ft_print_formated_argument(va_list ap, const char *string, t_print *tab[], t_flag *flags);
+int		ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags);
 
 int		ft_parse_flag(const char *format, t_flag *flags, t_print *tab[]);
 
@@ -51,5 +51,11 @@ int		ft_parse_prom(const char *format, t_flag *flags, t_print *tab[]);
 int		ft_parse_type(const char *format, t_flag *flags, t_print *tab[]);
 
 void	ft_solve_conflict(t_flag *flags);
+
+int		ft_print_string(t_flag *flags, va_list ap);
+
+int		ft_print_char(t_flag *flags, va_list ap);
+
+int		ft_print_pointer(t_flag *flags, va_list ap);
 
 #endif
