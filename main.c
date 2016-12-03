@@ -240,7 +240,7 @@ int		main(void)
 	ft_printf("%w#100d");
 	ft_printf("%#U");
 	ft_printf("%100c");
-*/
+
 	printf("print char and string\n");
 
 	char	*p;
@@ -256,8 +256,19 @@ int		main(void)
 	printf("char : %c\n", 'A');
 //	ft_printf("pointer : %p\n", p);
 //	printf("pointer : %p\n", p);
+	ft_printf("Voici un pourcentage : %% non ?\n");
+	printf("Voici un pourcentage : %% non ?\n");
+*/
+	printf("print int\n");
+
+	ft_printf("voici un int : %d yes ?\n", 100);
+	printf("voici un int : %d yes ?\n", 100);
+	ft_printf("voici un int : %D non?\n", 42);
+	printf("voici un int : %D non?\n", 42);
+	ft_printf("voici un int : %i non?\n", 150);
+	printf("voici un int : %i non?\n", 150);
+	ft_printf("voici un int precise : %10d non?\n", 84);
+	printf("voici un int precise : %10d non?\n", 84);
 
 	return (0);
 }
-
-

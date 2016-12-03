@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   rules_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/02 14:33:15 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 23:07:59 by ariard           ###   ########.fr       */
+/*   Created: 2016/12/03 22:48:04 by ariard            #+#    #+#             */
+/*   Updated: 2016/12/03 23:14:59 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "ft_printf.h"
+#include <stdio.h>
 
-size_t				ft_intlen(int d)
+int			ft_print_int(t_flag *flags, va_list ap)
 {
-	int				len;
-	long long		nb;
+	int		i;
+	int		n;
+	size_t	len;
 
-	len = 0;
-	nb = d;
-	if (nb < 0)
-	{
-		len++;
-		nb *= -1;
-	}
-	if (nb == 0)
-		len++;
-	while (nb)
-	{
-		len++;
-		nb = nb / 10;
-	}
-	return (len);
-}
+	i = va_arg(ap, int);
+	if (i == 0 && flags->min_width == 0)
+		return (0);
+	len = ft_intlen(i);
+	n = len;
+	if (flags->min_width)
+		if ((len = flags->min_width - len) > 0)
+		{
+			n += len;
+			while (len--)
+				ft_putchar(32);
+		}
+	ft_putnbr(i);
+	return (n);
+}		

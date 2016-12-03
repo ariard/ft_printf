@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 21:31:36 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 23:05:52 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,9 @@ int		ft_print_string(t_flag *flags, va_list ap);
 int		ft_print_char(t_flag *flags, va_list ap);
 
 int		ft_print_pointer(t_flag *flags, va_list ap);
+
+int		ft_print_pourcentage(t_flag *flags, va_list ap);
+
+int		ft_print_int(t_flag *flags, va_list ap);
 
 #endif
