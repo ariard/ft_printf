@@ -251,7 +251,7 @@ int		main(void)
 	ft_printf("salut %.10s\n", "comment ca va?");
 	printf("salut %.10s\n", "comment ca va?");
 	ft_printf("grosse phrase : %s\n", "abcdefghijklmnopqrstuvwxyz");
-	printf("grosse phrase : %s\n", "abcdefghiklmnopqrstuvwxyz");
+	printf("grosse phrase : %s\n", "abcdefghijklmnopqrstuvwxyz");
 	ft_printf("char : %c\n", 'A');
 	printf("char : %c\n", 'A');
 //	ft_printf("pointer : %p\n", p);

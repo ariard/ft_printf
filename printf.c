@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 21:26:17 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 22:28:06 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void			ft_gen_tab_print(t_print *tab[])
 int				ft_printf(const char *format, ...)
 {
 	va_list 	ap;
-	size_t		len;
+	int			len;
+	int			len2;
 	int			n;
 	t_print		*tab[26];
 	t_flag		*flags;
@@ -80,12 +81,12 @@ int				ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 			{
-				if (ft_parse_flag(format, flags, tab) == 0)
+				if ((len = ft_parse_flag(format, flags, tab)) == 0)
 					len = 1;
 				else
-					len = ft_print_formated_argument(ap, tab, flags);
-				n += len;
-				format += len;
+					len2 = ft_print_formated_argument(ap, tab, flags);
+				n += len2;
+				format += len + 1;
 			}
 		len = ft_strlenchr(format, '%');
 		write(1, format, len);
