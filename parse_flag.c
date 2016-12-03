@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 17:48:44 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/02 20:47:26 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 14:35:36 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,9 @@ int				ft_parse_maxwidth(const char *format, t_flag *flags)
 	return (len);
 }
 
+int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
+{
+
 int				ft_parse_flag(const char *format, t_print *tab[])
 {
 	t_flag		*flags;
@@ -94,11 +97,10 @@ int				ft_parse_flag(const char *format, t_print *tab[])
 	len += ft_parse_minwidth(format, flags);
 	format += len;
 	len += ft_parse_maxwidth(format, flags);
+	format += len;
+	len += ft_parse_type(format, flags, tab);
 
-	if (flags->min_width)
-		printf("min : %d\n", flags->min_width);
-	if (flags->max_width)
-		printf("max : %d\n", flags->max_width);
-
+//	ft_check_diff_for_validity
+//	ft_solve_conflit_behavior
 	return (len);
 }
