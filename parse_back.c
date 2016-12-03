@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 17:48:44 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 17:44:17 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 17:35:51 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,25 +95,43 @@ int				ft_parse_flag(const char *format, t_print *tab[])
 	tmp = (char *)format;
 	flags = ft_memalloc(sizeof(flags));
 	format++;
-	n = ft_parse_precedence(format, flags, tab);
+	if ((n = ft_parse_precedence(format, flags, tab)))
+	{
+		format += n;
+		len += n;
+	}
+	n = ft_parse_flag_suite(format, tab, flags, len)
 	format += n;
 	len += n;
-	n = ft_parse_minwidth(format, flags);
-	format += n;
-	len += n;
-	n = ft_parse_maxwidth(format, flags);
-	format += n;
-	len += n;
-	n = ft_parse_prom(format, flags, tab);	
-	format += n;
-	len += n;
-	n = ft_parse_type(format, flags, tab);
-	format += n;
-	len += n;
+	if ((n = ft_parse_type(format, flags, tab)))
+	{
+		format += n;
+		len += n;
+	}
+	len += ft_parse_flag_suite(format, tab, flags, len);
 	if (len != (int)ft_strlenchr(tmp, flags->type) || n == 0)
-	return (0);
+		return (0);
+	return (len);
 }
 
-//	ft_solve_conflit_behaviori
-//	return (len);
-//}
+int			ft_parse_flag_suite(const char *format, t_print *tab[], t_flag *flags, int len)
+{
+	int		n;
+
+	if ((n = ft_parse_minwidth(format, flags)))
+	{
+		format += n;
+		len += n;
+	}
+	if ((n = ft_parse_maxwidth(format, flags)))
+	{
+		format += n;
+		len += n;
+	}
+	if ((n = ft_parse_prom(format, flags, tab)))
+	{	
+		format += n;
+		len += n;
+	}
+	return (len);
+}

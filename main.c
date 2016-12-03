@@ -182,7 +182,7 @@ int		main(void)
 	ft_printf("%jd", 100);
 	printf("j\n");
 
-*/
+
 	
 	printf("parsing flags type\n");
 
@@ -216,7 +216,22 @@ int		main(void)
 	printf("X\n");
 	ft_printf("%%", 100);
 	printf("%%");
+*/
 
+	printf("check validity\n");
+	
+	ft_printf("%#10ld", 100);
+	printf("VRAI\n");
+	ft_printf("%#10.10a", 100);
+	printf("FAUX\n");
+	ft_printf("%#010.10lld", 100);
+	printf("VRAI\n");
+	ft_printf("% #10.10w", 100);
+	printf("FAUX\n");
+	ft_printf("%# +-12345.657hd", 100);
+	printf("VRAI\n");
+	ft_printf("%123&sd", 100);
+	printf("FAUX\n");
 	return (0);
 }
 

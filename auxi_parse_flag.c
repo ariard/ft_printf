@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 16:13:58 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 17:21:25 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,22 @@ int				ft_parse_prom(const char *format, t_flag *flags, t_print *tab[])
 		i++;
 	}
 	if (flags->promotion == 0)
+		return (0);
+	return (1);
+}
+
+int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
+{
+	int			i;
+
+	i = 0;
+	while (i < 19)
+	{
+		if (tab[i]->c == *format)
+			flags->type = *format;
+		i++;
+	}
+	if (flags->type == 0)
 		return (0);
 	return (1);
 }
