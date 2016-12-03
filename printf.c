@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 15:11:47 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 16:03:23 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[16] = ft_create_print('X', &ft_nothing);
 	tab[17] = ft_create_print('C', &ft_nothing);
 	tab[18] = ft_create_print('%', &ft_nothing);
-	tab[19] = ft_create_print('h', &ft_nothing);
+	tab[19] = ft_create_print('y', &ft_nothing);
 	tab[20] = ft_create_print('w', &ft_nothing);
 	tab[21] = ft_create_print('l', &ft_nothing);
-	tab[22] = ft_create_print('y', &ft_nothing);
+	tab[22] = ft_create_print('h', &ft_nothing);
 	tab[23] = ft_create_print('z', &ft_nothing);
 	tab[24] = ft_create_print('j', &ft_nothing);
 }
@@ -83,7 +83,7 @@ int				ft_printf(const char *format, ...)
 				format += len;
 			}
 		len = ft_strlenchr(format, '%');
-		write(1, format, len);
+//		write(1, format, len);
 		n += len;
 		format += len;
 	}

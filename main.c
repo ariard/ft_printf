@@ -138,27 +138,17 @@ int		main(void)
 	return (0); 
 	
 	printf("parsing flags precedence");
-	
-
 	ft_printf("my number : %+ d\n", 12345);
 	printf(" \n");
-
-
 	ft_printf("my number : % +d\n", 6789);
 	printf("+\n");
-
-
 	ft_printf("my number : %+-d\n", 34653);
 	printf("-\n");
-
-
 	ft_printf("my number : %+#x\n", 34653);
 	printf("#\n");
-
-
 	ft_printf("my number : %------+0d\n", 34653);
 	printf("0\n");
-*/	
+	
 	printf("parsing flags width");
 
 	ft_printf("%789d\n", 100);
@@ -172,6 +162,26 @@ int		main(void)
 	printf("1234\n");
 	ft_printf("%55d\n", 100);
 	printf("55\n");
+
+*/
+	printf("parsing flags prom\n");
+	
+	ft_printf("%lld", 100);
+	printf("y\n");
+	ft_printf("%hhd", 100);
+	printf("w\n");
+	ft_printf("%hld", 100);
+	ft_printf("%lhd", 100);
+	ft_printf("%hd", 100);
+	printf("h\n");
+	ft_printf("%d", 100);
+	ft_printf("%ld", 100);
+	printf("l\n");
+	ft_printf("%zd", 100);
+	printf("z\n");
+	ft_printf("%jd", 100);
+	printf("j\n");
+
 	return (0);
 }
 

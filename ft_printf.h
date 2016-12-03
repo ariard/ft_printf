@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/02 20:54:22 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 16:00:19 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct		s_flag
 	int				min_width;
 	int				max_width;
 	char			type;
+	char			promotion;
 }					t_flag;
 
 typedef struct		s_print
@@ -44,5 +45,7 @@ int		ft_printf(const char *format, ...);
 int		ft_print_formated_argument(va_list ap, const char *format, size_t jump);
 
 int		ft_parse_flag(const char *format, t_print *tab[]);
+
+int		ft_parse_prom(const char *format, t_flag *flags, t_print *tab[]);
 
 #endif

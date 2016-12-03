@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 17:48:44 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 14:35:36 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/03 16:02:33 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,16 @@ int				ft_parse_maxwidth(const char *format, t_flag *flags)
 	return (len);
 }
 
-int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
+/*int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
 {
+	while (*tab)
+	{
+		if ((*tab)->c == *format)
+			flags->promotion = *format;
+		tab++;
+	}
+	if (*format 
+*/
 
 int				ft_parse_flag(const char *format, t_print *tab[])
 {
@@ -98,9 +106,13 @@ int				ft_parse_flag(const char *format, t_print *tab[])
 	format += len;
 	len += ft_parse_maxwidth(format, flags);
 	format += len;
-	len += ft_parse_type(format, flags, tab);
+	len += ft_parse_prom(format, flags, tab);
+//	len += ft_parse_type(format, flags, tab);
+	
 
 //	ft_check_diff_for_validity
-//	ft_solve_conflit_behavior
+//	ft_solve_conflit_behaviori
+	if (flags->promotion)
+		printf("prom : %c\n", flags->promotion);
 	return (len);
 }
