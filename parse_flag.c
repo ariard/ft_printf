@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 17:48:44 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 22:48:58 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 14:07:52 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ int				ft_parse_maxwidth(const char *format, t_flag *flags)
 	char		*tmp;
 
 	len = 1;
-	format++;
+	if (*format == '.')
+		format++;
 	tmp = (char *)format;
 	while (*format >= '0' && *format <= '9')
 	{

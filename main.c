@@ -5,44 +5,39 @@
 int		main(void)
 {
 
+
+	printf("no conv\n");
+
 /*
-	char *E1;
-	char *E2;
-	char *E3;
-	char *T1;
-	char *T2;
-	char *T3;
+	ft_printf("This is a simple test.");
+	printf("This is a simple test.");
 
+	printf("\n");
 
-
-	E1 = "Fail at simple test";
-	E2 = "Fail at empty string";
-	E3 = "Fail at newline";
-	T1 = "This is\n a simple\n test\n";
-	T2 = "";
-	T3 = "\n";
-
-	ft_printf("This is\n a simple\n test\n");
-	printf("This is\n a simple\n test\n");
+	ft_printf("This is a simple test.\nSecond sentence.\n");
+	printf("This is a simple test.\nSecond sentence.\n");
 	ft_printf("");
 	printf("");
 	ft_printf("\n");
    	printf("\n");
-
+*/
 	printf("\nsimple conv -s\n\n");
 	
-	E1 = "Fail at simple conv letter";
-	E2 = "Fail at simple conv number";
-	E3 = "Fail at empty_string";
+	ft_printf("%s\n", "abc");
+	printf("%s\n", "abc");
 
-	ft_printf("abc%s\n", "efg");
-	printf("abc%s\n", "efg");
+	ft_printf("111%s333\n", "222");
+	printf("111%s333\n", "222");
+	ft_printf("%s333\n", "222");
+   	printf("%s333\n", "222");
 	ft_printf("111%s\n", "222");
-   	printf("111%s\n", "222");
-	ft_printf("%s\n", "");
-   	printf("%s\n", "");
+ 	printf("111%s\n", "222");
+	ft_printf("{%s}\n", "");
+	printf("{%s}\n", "");
+	ft_printf("{%s}\n", 0);
+//   	printf("{%s}\n", 0);
 
-	printf("\nmulti conv -s\n\n");
+/*	printf("\nmulti conv -s\n\n");
 	
 	E1 = "Fail at multi conv letter";
 	E2 = "Fail at multi conv number";
@@ -113,10 +108,6 @@ int		main(void)
 	printf("hello %s\n", NULL);
 	ft_printf("hello : %d\n", NULL);
 	printf("hello : %d\n", NULL);
-
-	
-
-
 	
 	int	a;
 	int b; 
@@ -258,7 +249,7 @@ int		main(void)
 //	printf("pointer : %p\n", p);
 	ft_printf("Voici un pourcentage : %% non ?\n");
 	printf("Voici un pourcentage : %% non ?\n");
-*/
+
 	printf("print int\n");
 
 	ft_printf("voici un int : %d yes ?\n", 100);
@@ -269,6 +260,6 @@ int		main(void)
 	printf("voici un int : %i non?\n", 150);
 	ft_printf("voici un int precise : %10d non?\n", 84);
 	printf("voici un int precise : %10d non?\n", 84);
-
+*/
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 23:02:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 23:19:58 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 14:01:30 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ int				ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags)
 
 	i = 0;
 	len = 0;
+	if (ap == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
 //	if (flags->min_width)
 	while (i < 5)
 	{

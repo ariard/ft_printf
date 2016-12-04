@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 20:16:51 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/03 23:29:50 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 13:53:03 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int			ft_print_string(t_flag *flags, va_list ap)
 	char	*s;
 
 	s = va_arg(ap, char *);
+	if (s == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
 	if (flags->max_width)
 		ft_putstrn(s, flags->max_width);
 	else
@@ -41,7 +46,7 @@ int			ft_print_pointer(t_flag *flags, va_list ap)
 
 	(void)flags;
 	p = va_arg(ap, void *);
-	ft_put_hex((unsigned long int)p);
+//	ft_put_hex((unsigned long int)p);
 	return (0);
 }
 
