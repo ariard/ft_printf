@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 20:16:51 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 18:02:13 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 18:59:59 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int			ft_print_pointer(t_flag *flags, va_list ap)
 		return (3);
 	}
 	ft_putstr("0x");
-	n = ft_put_hex((unsigned long int)p);
+	n = ft_put_hex((unsigned long long int)p);
 	return (n + 2);
 }
 

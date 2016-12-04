@@ -6,27 +6,27 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/04 17:12:07 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 19:00:54 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 19:02:51 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int			ft_put_oct(unsigned long long int i)
+int			ft_put_hexmaj(unsigned long long int i)
 {
 	char	s[32];
 	char	*base;
 	int		index;
 	int		j;
 
-	base = "012345678";
+	base = "0123456789ABCDEF";
 	j = 0;
 	while (i)
 	{
-		index = i % 8;
+		index = i % 16;
 		s[j] = base[index];
 		j++;
-		i = i / 8;
+		i = i / 16;
 	}
 	s[j] = 0;
 	ft_strrev(s);

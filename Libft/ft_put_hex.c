@@ -6,13 +6,13 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/04 17:12:07 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 17:37:08 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 19:01:06 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int			ft_put_hex(unsigned long int i)
+int			ft_put_hex(unsigned long long int i)
 {
 	char	s[32];
 	char	*base;
