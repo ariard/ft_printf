@@ -7,10 +7,13 @@ int		main(void)
 
 
 
+	int		len2;
+	
 
-/*
-	ft_printf("This is a simple test.");
-	printf("This is a simple test.");
+/*	len2 = ft_printf("This is a simple test.");
+	len3 = printf("This is a simple test.");
+
+	printf("%d vs %d\n", len2, len3);
 
 	printf("\n");
 
@@ -21,10 +24,11 @@ int		main(void)
 	ft_printf("\n");
    	printf("\n");
 
-	printf("\nsimple conv -s\n\n");
+ 	
 	
-	ft_printf("%s\n", "abc");
-	printf("%s\n", "abc");
+	len2 = ft_printf("%s\n", "abc");
+	len3 = printf("%s\n", "abc");
+	printf("%d vs %d\n", len2, len3);
 
 	ft_printf("111%s333\n", "222");
 	printf("111%s333\n", "222");
@@ -38,12 +42,12 @@ int		main(void)
 //   	printf("{%s}\n", 0);
 
 	printf("\nmulti conv -s\n\n");
-
+*/
 	int len;
-
+/*
 	len = ft_printf("111%s333%s555%saaa%sccc\n", "222", "444", "666", "bbb");
-	printf("111%s333%s555%saaa%sccc\n", "222", "444", "666", "bbb");
-	printf("%d vs 27\n", len);
+	len2 = printf("111%s333%s555%saaa%sccc\n", "222", "444", "666", "bbb");
+	printf("%d vs %d\n", len, len2);
 	len = ft_printf("111%s333%s555\n", "222", "444");
 	printf("111%s333%s555\n", "222", "444");
 	printf("%d vs 15\n", len);
@@ -282,5 +286,17 @@ int		main(void)
 	ft_printf("voici un int precise : %10d non?\n", 84);
 	printf("voici un int precise : %10d non?\n", 84);
 */
+	len = ft_printf("%");
+	len2 = ft_printf("%");
+	ft_putnbr(len);
+//	ft_putnbr(len2);
+//	len = ft_printf("% Zooo");
+//	len2 = ft_printf("% Zooo ");
+//	printf("\n%d vs %d\n", len, len2);
+//	len = ft_printf("{%}");
+//	len2 = ft_printf("{%}");
+//	printf("\n%d vs %d\n", len, len2);
+
+
 	return (0);
 }

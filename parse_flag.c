@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 17:48:44 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 14:51:05 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 15:30:08 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ int				ft_parse_flag(const char *format, t_flag *flags, t_print *tab[])
 	n = ft_parse_type(format, flags, tab);
 	format += n;
 	len += n;
-	ft_putnbr(len);
 	if ((len != (int)ft_strlenchr(tmp, flags->type) || n == 0) && flags->type != '%')
 		return (0);
 	ft_solve_conflict(flags);
