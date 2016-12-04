@@ -301,9 +301,9 @@ int		main(void)
 	len2 = 0;
 	len = 0;
 
-	len = ft_printf("%O", LONG_MAX);
+	len = ft_printf("%U", ULONG_MAX);
 	ft_putchar(10);
-	len2 = printf("%lO", LONG_MAX);
+	len2 = printf("%lU", ULONG_MAX);
 
 	printf("\n\n");
 	ft_putnbr(len);

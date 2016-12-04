@@ -6,24 +6,19 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 14:33:15 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 18:52:35 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 18:53:51 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-size_t				ft_intlen(long long int d)
+size_t				ft_unsintlen(unsigned long long int d)
 {
 	int				len;
-	long long		nb;
+	unsigned long long		nb;
 
 	len = 0;
 	nb = d;
-	if (nb < 0)
-	{
-		len++;
-		nb *= -1;
-	}
 	if (nb == 0)
 		len++;
 	while (nb)

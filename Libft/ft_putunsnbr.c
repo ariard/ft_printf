@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/02 14:33:15 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 18:52:35 by ariard           ###   ########.fr       */
+/*   Created: 2016/11/04 16:24:18 by ariard            #+#    #+#             */
+/*   Updated: 2016/12/04 18:54:11 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-size_t				ft_intlen(long long int d)
+void	ft_putunsnbr(unsigned long long int n)
 {
-	int				len;
-	long long		nb;
+	unsigned long long int	nb;
 
-	len = 0;
-	nb = d;
-	if (nb < 0)
+	nb = n;
+	if (nb > 9)
 	{
-		len++;
-		nb *= -1;
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
 	}
-	if (nb == 0)
-		len++;
-	while (nb)
-	{
-		len++;
-		nb = nb / 10;
-	}
-	return (len);
+	else
+		ft_putchar(nb + '0');
 }

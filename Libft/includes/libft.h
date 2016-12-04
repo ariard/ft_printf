@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 19:52:29 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 18:00:47 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 18:53:34 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ void				*ft_memchr(const void *s, int c, size_t n);
 
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 
-size_t				ft_intlen(int d);
+size_t				ft_intlen(long long int d);
+
+size_t				ft_unsintlen(unsigned long long int d);
 
 size_t				ft_strlen(const char *s);
 
@@ -142,7 +144,9 @@ int					ft_putstrn(char const *s, int n);
 
 void				ft_putendl(char const *s);
 
-void				ft_putnbr(int n);
+void				ft_putnbr(long long int  n);
+
+void				ft_putunsnbr(unsigned long long n);
 
 void				ft_putchar_fd(char c, int fd);
 

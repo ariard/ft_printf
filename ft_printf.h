@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 18:02:45 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 18:42:31 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,7 @@ int		ft_print_pourcentage(t_flag *flags, va_list ap);
 int		ft_print_int(t_flag *flags, va_list ap);
 
 int		ft_print_octal(t_flag *flags, va_list ap);
+
+int		ft_print_unsigned(t_flag *flags, va_list ap);
 
 #endif
