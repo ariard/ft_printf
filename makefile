@@ -6,7 +6,7 @@
 #    By: ariard <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/30 19:44:10 by ariard            #+#    #+#              #
-#    Updated: 2016/12/03 23:20:09 by ariard           ###   ########.fr        #
+#    Updated: 2016/12/04 14:43:10 by ariard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC= main.c printf.c print_argument.c  parse_flag.c auxi_parse_flag.c rules_char
 OBJ= main.o printf.o print_argument.o parse_flag.o auxi_parse_flag.o rules_char_string.o rules_int.o ft_putchar.o ft_putstr.o ft_putnbr.o ft_strchrcpy.o ft_strcmp.o ft_strdel.o ft_strlenchr.o ft_strnew.o ft_bzero.o ft_strchr.o ft_strlen.o ft_intlen.o ft_memalloc.o ft_atoi.o ft_strncpy.o ft_putstrn.o
 
 HEADER= ft_printf.h
-FLAGS= -Wall -Wextra -Werror
+FLAGS= #-Wall -Wextra -Werror
 
 all : $(NAME)
 

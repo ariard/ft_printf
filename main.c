@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "ft_printf.h"
-
+#include <limits.h>
 
 int		main(void)
 {
 
 
-	printf("no conv\n");
+
 
 /*
 	ft_printf("This is a simple test.");
@@ -20,7 +20,7 @@ int		main(void)
 	printf("");
 	ft_printf("\n");
    	printf("\n");
-*/
+
 	printf("\nsimple conv -s\n\n");
 	
 	ft_printf("%s\n", "abc");
@@ -37,20 +37,41 @@ int		main(void)
 	ft_printf("{%s}\n", 0);
 //   	printf("{%s}\n", 0);
 
-/*	printf("\nmulti conv -s\n\n");
-	
-	E1 = "Fail at multi conv letter";
-	E2 = "Fail at multi conv number";
-	E3 = "Fail at only format";
+	printf("\nmulti conv -s\n\n");
 
-	ft_printf("abcd%shij%s%s\n", "efg", "kl", "mn"); 
-	printf("abcd%shij%s%s\n", "efg", "kl", "mn");
-	ft_printf("111%s333%s555%s\n", "222", "444", "666");
-	printf("111%s333%s555%s\n", "222", "444", "666");
-	ft_printf("%s%s%s%s\n", "a","b", "c", "d");
-	printf("%s%s%s%s\n", "a", "b", "c", "d");
+	int len;
 
-	printf("\nmulti conv -d\n\n");
+	len = ft_printf("111%s333%s555%saaa%sccc\n", "222", "444", "666", "bbb");
+	printf("111%s333%s555%saaa%sccc\n", "222", "444", "666", "bbb");
+	printf("%d vs 27\n", len);
+	len = ft_printf("111%s333%s555\n", "222", "444");
+	printf("111%s333%s555\n", "222", "444");
+	printf("%d vs 15\n", len);
+	len = ft_printf("%s%s%s%s%s\n", "1","2", "3", "4", "5");
+	printf("%s%s%s%s%s\n", "1", "2", "3", "4", "5");
+	printf("%d vs 5\n", len);
+
+	printf("print d\n\n");
+
+	ft_printf("%d\n", 42);
+	printf("%d\n", 42);
+	ft_printf("%d\n", -42);
+	printf("%d\n", -42);
+	ft_printf("before %d after\n", 42);
+	printf("before %d after\n", 42);
+	ft_printf("%d%d%d%d%d\n", 1, -2, 3, -4 , 5);
+	printf("%d%d%d%d%d\n", 1, -2, 3, -4 , 5);
+	ft_printf("a%db%dc%dd\n", 1, -2, 3);
+	printf("a%db%dc%dd\n", 1, -2, 3);
+	ft_printf("%d\n", INT_MAX);
+	printf("%d\n", INT_MAX);
+	ft_printf("%d\n", INT_MIN);
+	printf("%d\n", INT_MIN);
+*/
+
+
+
+/*	printf("\nmulti conv -d\n\n");
 	
 	E1 = "Fail at digit+";
 	E2 = "Fail at digit-";

@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 13:57:49 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 14:28:12 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,5 @@ int				ft_printf(const char *format, ...)
 		format += len;
 	}
 	va_end(ap);
-	return (n);
+	return (n - 1);
 }
