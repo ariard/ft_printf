@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 20:16:51 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 15:19:10 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 17:42:27 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,18 @@ int			ft_print_char(t_flag *flags, va_list ap)
 int			ft_print_pointer(t_flag *flags, va_list ap)
 {
 	void	*p;
+	int		n;
 
 	(void)flags;
 	p = va_arg(ap, void *);
-//	ft_put_hex((unsigned long int)p);
-	return (0);
+	if (p == NULL)
+	{
+		ft_putstr("0x0");
+		return (3);
+	}
+	ft_putstr("0x");
+	n = ft_put_hex((unsigned long int)p);
+	return (n + 2);
 }
 
 int			ft_print_pourcentage(t_flag *flags, va_list ap)

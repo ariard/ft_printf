@@ -286,9 +286,9 @@ int		main(void)
 	ft_printf("voici un int precise : %10d non?\n", 84);
 	printf("voici un int precise : %10d non?\n", 84);
 */
-	len = ft_printf("%");
-	len2 = ft_printf("%");
-	ft_putnbr(len);
+//	len = ft_printf("%");
+//	len2 = ft_printf("%");
+//	ft_putnbr(len);
 //	ft_putnbr(len2);
 //	len = ft_printf("% Zooo");
 //	len2 = ft_printf("% Zooo ");
@@ -298,5 +298,18 @@ int		main(void)
 //	printf("\n%d vs %d\n", len, len2);
 
 
+	len2 = 0;
+	len = 0;
+	int		i;
+
+	len = ft_printf("%p", &i);
+
+	printf("\n\n\n");
+	len2 = printf("%p", &i);
+
+	printf("\n\n");
+	ft_putnbr(len);
+	ft_putchar(10);
+	ft_putnbr(len2);
 	return (0);
 }
