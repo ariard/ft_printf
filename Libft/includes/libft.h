@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 19:52:29 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 17:16:15 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 18:00:47 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,8 @@ int					ft_putchar(char c);
 int					ft_putstr(char const *s);
 
 int					ft_put_hex(unsigned long int i);
+
+int					ft_put_oct(unsigned long int i);
 
 int					ft_putstrn(char const *s, int n);
 

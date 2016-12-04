@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_int.c                                        :+:      :+:    :+:   */
+/*   rules_base.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/03 22:48:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 17:48:23 by ariard           ###   ########.fr       */
+/*   Created: 2016/12/04 17:48:49 by ariard            #+#    #+#             */
+/*   Updated: 2016/12/04 18:18:13 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int			ft_print_int(t_flag *flags, va_list ap)
+int					ft_print_octal(t_flag *flags, va_list ap)
 {
-	int		i;
-	int		n;
-	int		len;
+	unsigned long int 	i;
+	int					n;
 
-	i = va_arg(ap, int);
-	if (i == 0 && flags->min_width == 0)
-		return (0);
-	len = (int)ft_intlen(i);
-	n = len;
-	if (flags->min_width)
-		if ((len = flags->min_width - len) > 0)
-		{
-			n += len;
-			while (len--)
-				ft_putchar(32);
-		}
-	ft_putnbr(i);
+	(void)flags;
+	i = va_arg(ap, unsigned long int);
+	if (i == 0)
+	{
+		ft_putchar('0');
+		return (1);
+	}
+	n = ft_put_oct((unsigned long int)i);
 	return (n);
-}		
+}

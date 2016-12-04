@@ -300,16 +300,15 @@ int		main(void)
 
 	len2 = 0;
 	len = 0;
-	int		i;
 
-	len = ft_printf("%p", &i);
-
-	printf("\n\n\n");
-	len2 = printf("%p", &i);
+	len = ft_printf("%O", LONG_MAX);
+	ft_putchar(10);
+	len2 = printf("%lO", LONG_MAX);
 
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);
 	ft_putnbr(len2);
+
 	return (0);
 }

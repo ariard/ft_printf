@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_int.c                                        :+:      :+:    :+:   */
+/*   ft_put_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/03 22:48:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 17:48:23 by ariard           ###   ########.fr       */
+/*   Created: 2016/12/04 17:12:07 by ariard            #+#    #+#             */
+/*   Updated: 2016/12/04 17:57:55 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "includes/libft.h"
 
-int			ft_print_int(t_flag *flags, va_list ap)
+int			ft_put_oct(unsigned long int i)
 {
-	int		i;
-	int		n;
-	int		len;
+	char	s[32];
+	char	*base;
+	int		index;
+	int		j;
 
-	i = va_arg(ap, int);
-	if (i == 0 && flags->min_width == 0)
-		return (0);
-	len = (int)ft_intlen(i);
-	n = len;
-	if (flags->min_width)
-		if ((len = flags->min_width - len) > 0)
-		{
-			n += len;
-			while (len--)
-				ft_putchar(32);
-		}
-	ft_putnbr(i);
-	return (n);
-}		
+	base = "012345678";
+	j = 0;
+	while (i)
+	{
+		index = i % 8;
+		s[j] = base[index];
+		j++;
+		i = i / 8;
+	}
+	s[j] = 0;
+	ft_strrev(s);
+	ft_putstr(s);
+	return (ft_strlen(s));
+}

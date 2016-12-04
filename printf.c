@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 15:21:53 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/04 17:59:44 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[8] = ft_create_print('d', &ft_print_int);
 	tab[9] = ft_create_print('D', &ft_print_int);
 	tab[10] = ft_create_print('i', &ft_print_int);
-	tab[11] = ft_create_print('o', &ft_nothing);
-	tab[12] = ft_create_print('O', &ft_nothing);
+	tab[11] = ft_create_print('o', &ft_print_octal);
+	tab[12] = ft_create_print('O', &ft_print_octal);
 	tab[13] = ft_create_print('u', &ft_nothing);
 	tab[14] = ft_create_print('U', &ft_nothing);
 	tab[15] = ft_create_print('x', &ft_nothing);
