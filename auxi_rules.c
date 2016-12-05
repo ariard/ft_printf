@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 22:00:56 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 23:21:50 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,15 @@ int						ft_print_minwidth(t_flag *flags, int len)
 				ft_putchar(48);
 	}
 	return (n);
+}
+
+int						ft_print_sign(t_flag *flags, long long int i)
+{
+	if (flags->precedence == '+' && i > 0)
+		ft_putchar('+');
+	else if (flags->precedence == ' ' && i > 0)
+		ft_putchar(' ');
+	if ((flags->precedence == ' ' || flags->precedence == '+') && i > 0)
+		return (1);
+	return (0);
 }

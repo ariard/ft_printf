@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 20:34:51 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 23:14:46 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		ft_parse_prom(const char *format, t_flag *flags, t_print *tab[]);
 
 int		ft_parse_type(const char *format, t_flag *flags, t_print *tab[]);
 
-void	ft_solve_conflict(t_flag *flags);
+void	ft_solve_conflict(t_flag *flags, const char *format);
 
 int		ft_print_string(t_flag *flags, va_list ap);
 
@@ -78,5 +78,7 @@ long long int		ft_get_signvalue(t_flag *flags, va_list ap);
 unsigned long long	ft_get_unsignvalue(t_flag *flags, va_list ap);
 
 int					ft_print_minwidth(t_flag *flags, int len);
+
+int					ft_print_sign(t_flag *flags, long long int i);
 
 #endif

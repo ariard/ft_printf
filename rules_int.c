@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 22:48:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 22:06:41 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 23:18:06 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ int			ft_print_int(t_flag *flags, va_list ap)
 		ft_putchar('-');
 	}
 	n = len;
+	if ((flags->precedence == ' ' || flags->precedence == '+') && i != 0 &&
+		flags->min_width)
+		len += 1;
 	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);
+	n += ft_print_sign(flags, i);
 	ft_putnbr(i);
 	if (flags->min_width && flags->precedence == '-')
 		n += ft_print_minwidth(flags, len);
@@ -66,8 +70,12 @@ int			ft_print_long(t_flag *flags, va_list ap)
 		ft_putchar('-');
 	}
 	n = len;
+	if ((flags->precedence == ' ' || flags->precedence == '+') && i != 0 &&
+		flags->min_width)
+		len += 1;
 	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);
+	n += ft_print_sign(flags, i);
 	ft_putnbr(i);
 	if (flags->min_width && flags->precedence == '-')
 		n += ft_print_minwidth(flags, len);

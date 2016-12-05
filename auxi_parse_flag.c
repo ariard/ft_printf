@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 22:05:52 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 23:06:53 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,17 @@ int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
 	return (1);
 }
 
-void			ft_solve_conflict(t_flag *flags)
+void			ft_solve_conflict(t_flag *flags, const char *format)
 {
-	if (flags->precedence == '#' && (flags->type != 'x' || flags->type != 'X' || 
-		flags->type != 'o'))
-			flags->precedence = 0;
+	char		c;
+	
+	if (flags->precedence == ' ')
+		while (*format && *format != '%') 
+		{
+			if (*format == '+')
+				flags->precedence = '+' ;
+			format--;
+		}	
 	if ((flags->promotion == 'l' || flags->promotion == 'y') && (
 		flags->type == 'd' || flags->type == 'i' ))
 		flags->type = 'D';
