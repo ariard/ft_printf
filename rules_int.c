@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 22:48:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 18:57:07 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 12:56:30 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int			ft_print_int(t_flag *flags, va_list ap)
 	int		len;
 
 	i = va_arg(ap, int);
-	if (i == 0 && flags->min_width == 0)
-		return (0);
 	len = (int)ft_intlen(i);
 	n = len;
 	if (flags->min_width)
@@ -44,5 +42,25 @@ int			ft_print_unsigned(t_flag *flags, va_list ap)
 	u = va_arg(ap, unsigned long long int);
 	n = ft_unsintlen(u);
 	ft_putunsnbr(u);
+	return (n);
+}
+
+int			ft_print_long(t_flag *flags, va_list ap)
+{
+	long long i;
+	int		n;
+	int		len;
+
+	i = va_arg(ap, long long);
+	len = (int)ft_intlen(i);
+	n = len;
+	if (flags->min_width)
+		if ((len = flags->min_width - len) > 0)
+		{
+			n += len;
+			while (len--)
+				ft_putchar(32);
+		}
+	ft_putnbr(i);
 	return (n);
 }

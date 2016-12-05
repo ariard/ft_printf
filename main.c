@@ -301,9 +301,9 @@ int		main(void)
 	len2 = 0;
 	len = 0;
 
-	len = ft_printf("%x", 42);
+	len = ft_printf("%D", LONG_MIN);
 	ft_putchar(10);
-	len2 = printf("%x", 0);
+	len2 = printf("%lD", LONG_MIN);
 
 	printf("\n\n");
 	ft_putnbr(len);
