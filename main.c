@@ -300,9 +300,9 @@ int		main(void)
 
 	len2 = 0;
 	len = 0;
-	len = ft_printf("{%Z}", 123);
+	len = ft_printf("{%#&d}", 123);
 	ft_putchar(10);
-	len2 = printf("{%Z}", 123);
+	len2 = printf("{%#&d}", 123);
 
 	printf("\n\n");
 	ft_putnbr(len);

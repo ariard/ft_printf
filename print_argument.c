@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 23:02:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 20:42:05 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 22:09:18 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,17 @@
 
 int				ft_print_invalid(t_flag *flags)
 {
-	(void)flags;
-	return (0);
+	int			n;
+	int			len;
+
+	len = 1;
+	n = 1;
+	if (flags->min_width && flags->precedence != '-')
+		n += ft_print_minwidth(flags, len);
+	ft_putchar(flags->invalid);
+	if (flags->min_width && flags->precedence == '-')
+		n += ft_print_minwidth(flags, len);
+	return (n);
 }
 
 int				ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags)
@@ -26,6 +35,7 @@ int				ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags)
 
 	i = 0;
 	len = 0;
+
 	while (i < 5)
 	{
 		if (flags->precedence == tab[i]->c)
