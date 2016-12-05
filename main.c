@@ -300,9 +300,9 @@ int		main(void)
 
 	len2 = 0;
 	len = 0;
-	len = ft_printf("{%3c}", 0);
+	len = ft_printf("{%5x}", 128);
 	ft_putchar(10);
-	len2 = printf("{%3c}", 0);
+	len2 = printf("{%5x}", 128);
 
 	printf("\n\n");
 	ft_putnbr(len);

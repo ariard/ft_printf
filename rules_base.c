@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/04 17:48:49 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 18:55:47 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 19:24:34 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,20 @@ int					ft_print_octal(t_flag *flags, va_list ap)
 	unsigned long long int 	i;
 	int						n;
 	char					*new;
-//	int						len;
+	int						len;
 
 	i = ft_get_unsignvalue(flags, ap);
 	new = ft_conv_oct(i);
+	len = 1;
+	if (i != 0)
+		len = ft_strlen(new);
+	n = len;
+	if (flags->min_width)
+		n += ft_print_minwidth(flags, len);
 	if (i == 0)
-	{
 		ft_putchar('0');
-		return (1);
-	}
-//	len = ft_unsintlen(i);
-//	if (flags->min_width && flags->type != 'O')
-//		n += ft_print_minwidth(flags, len);
-	n = ft_putstr(new);
+	else
+		ft_putstr(new);
 	return (n);
 }
 
@@ -39,22 +40,23 @@ int					ft_print_hex(t_flag *flags, va_list ap)
 	unsigned long long int 	x;
 	int						n;
 	char					*new;
-//	int						len;
+	int						len;
 
 	n = 0;
 	x = ft_get_unsignvalue(flags, ap);
-	if (x == 0)
-	{
-		ft_putchar('0');
-		return (1);
-	}
-//	len = ft_unsintlen(x);
-//	if (flags->min_width)
-//		n += ft_print_minwidth(flags, len);
 	if (flags->type == 'x')
 		new = ft_conv_hex(x);
 	else if (flags->type == 'X')
 		new = ft_conv_hexmaj(x);
-	n = ft_putstr(new);
+	len = 1;
+	if (x != 0)
+		len = ft_strlen(new);
+	n = len;
+	if (flags->min_width)
+		n += ft_print_minwidth(flags, len);
+	if (x == 0)
+		ft_putchar('0');
+	else
+		 ft_putstr(new);
 	return (n);
 }
