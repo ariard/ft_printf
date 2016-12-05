@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 16:31:53 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 17:49:11 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ void			ft_solve_conflict(t_flag *flags)
 		flags->min_width = 0;
 	if ((flags->promotion == 'l' || flags->promotion == 'y') && (
 		flags->type == 'd' || flags->type == 'i' ))
+		flags->type = 'D';
+	if ((flags->promotion == 'j' || flags->promotion == 'z') 
+		&& (flags->type == 'd' || flags->type == 'i'))
 		flags->type = 'D';
 }
