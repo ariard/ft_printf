@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 22:48:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 12:56:30 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 17:03:46 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			ft_print_int(t_flag *flags, va_list ap)
 	int		n;
 	int		len;
 
-	i = va_arg(ap, int);
+	i = ft_get_signvalue(flags, ap);
 	len = (int)ft_intlen(i);
 	n = len;
 	if (flags->min_width)
@@ -38,8 +38,7 @@ int			ft_print_unsigned(t_flag *flags, va_list ap)
 	unsigned int long long u;
 	int	n;
 
-	(void)flags;
-	u = va_arg(ap, unsigned long long int);
+	u = ft_get_unsignvalue(flags, ap);
 	n = ft_unsintlen(u);
 	ft_putunsnbr(u);
 	return (n);
@@ -51,7 +50,7 @@ int			ft_print_long(t_flag *flags, va_list ap)
 	int		n;
 	int		len;
 
-	i = va_arg(ap, long long);
+	i =  ft_get_signvalue(flags, ap);
 	len = (int)ft_intlen(i);
 	n = len;
 	if (flags->min_width)

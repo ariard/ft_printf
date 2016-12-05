@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 12:57:51 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 16:49:01 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ int				ft_printf(const char *format, ...)
 	int			len;
 	int			len2;
 	int			n;
-	t_print		*tab[26];
+	t_print		*tab[27];
 	t_flag		*flags;
 
 	n = 0;
 	ft_gen_tab_print(tab);
 	flags = ft_memalloc(sizeof(flags));
-	tab[25] = NULL;
+	tab[26] = NULL;
 	va_start(ap, format);	
 	while (*format)
 	{

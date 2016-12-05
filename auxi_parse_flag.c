@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 16:17:43 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 16:31:53 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int				ft_parse_prom(const char *format, t_flag *flags, t_print *tab[])
 		flags->promotion = 'w';
 		return (2);
 	}
-	while (i < 25)
+	while (i < 26)
 	{
 		if (tab[i]->c == *format)
 			flags->promotion = *format;
@@ -66,6 +66,7 @@ void			ft_solve_conflict(t_flag *flags)
 	if ((flags->min_width || flags->max_width) && (flags->type == 'c' || 
 		flags->type == 'C' || flags->type == 's' || flags->type == 'S'))	
 		flags->min_width = 0;
+	if ((flags->promotion == 'l' || flags->promotion == 'y') && (
+		flags->type == 'd' || flags->type == 'i' ))
+		flags->type = 'D';
 }
-
-

@@ -300,10 +300,9 @@ int		main(void)
 
 	len2 = 0;
 	len = 0;
-
-	len = ft_printf("%D", LONG_MIN);
+	len = ft_printf("%hu, %hu", 0, USHRT_MAX + 42);
 	ft_putchar(10);
-	len2 = printf("%lD", LONG_MIN);
+	len2 = printf("%hu, %hu", 0, USHRT_MAX + 42);
 
 	printf("\n\n");
 	ft_putnbr(len);

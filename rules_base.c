@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/04 17:48:49 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 19:21:19 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 17:04:00 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int					ft_print_octal(t_flag *flags, va_list ap)
 	unsigned long long int 	i;
 	int					n;
 
-	(void)flags;
-	i = va_arg(ap, unsigned long long int);
+	i = ft_get_unsignvalue(flags, ap);
 	if (i == 0)
 	{
 		ft_putchar('0');
@@ -34,9 +33,8 @@ int					ft_print_hex(t_flag *flags, va_list ap)
 	unsigned long long int 	x;
 	int						n;
 
-	(void)flags;
 	n = 0;
-	x = va_arg(ap, unsigned long long int);
+	x = ft_get_unsignvalue(flags, ap);
 	if (x == 0)
 	{
 		ft_putchar('0');

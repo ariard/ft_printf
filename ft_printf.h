@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 12:51:48 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 17:04:09 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,11 @@ int		ft_print_unsigned(t_flag *flags, va_list ap);
 int		ft_print_hex(t_flag *flags, va_list ap);
 
 int		ft_print_long(t_flag *flags, va_list ap);
+
+int		ft_print_short(t_flag *flags, va_list ap);
+
+long long int		ft_get_signvalue(t_flag *flags, va_list ap);
+
+unsigned long long	ft_get_unsignvalue(t_flag *flags, va_list ap);
 
 #endif
