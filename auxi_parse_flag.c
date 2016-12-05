@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 18:24:42 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 20:13:21 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,6 @@ void			ft_solve_conflict(t_flag *flags)
 {
 	if (flags->precedence == '#' && (flags->type != 'x' || flags->type != 'X' || 
 		flags->type != 'o'))
-			flags->precedence = 0;
-	if (flags->precedence && (flags->type == 'c' || flags->type == 'C' || 
-		flags->type == 's' || flags->type == 'S'))
 			flags->precedence = 0;
 	if ((flags->promotion == 'l' || flags->promotion == 'y') && (
 		flags->type == 'd' || flags->type == 'i' ))

@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/04 17:48:49 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 19:24:34 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 19:51:00 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ int					ft_print_octal(t_flag *flags, va_list ap)
 	if (i != 0)
 		len = ft_strlen(new);
 	n = len;
-	if (flags->min_width)
+	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);
 	if (i == 0)
 		ft_putchar('0');
 	else
 		ft_putstr(new);
+	if (flags->min_width && flags->precedence == '-')
+		n += ft_print_minwidth(flags, len);
 	return (n);
 }
 
@@ -52,11 +54,13 @@ int					ft_print_hex(t_flag *flags, va_list ap)
 	if (x != 0)
 		len = ft_strlen(new);
 	n = len;
-	if (flags->min_width)
+	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);
 	if (x == 0)
 		ft_putchar('0');
 	else
 		 ft_putstr(new);
+	if (flags->min_width && flags->precedence == '-')
+		n += ft_print_minwidth(flags, len);
 	return (n);
 }

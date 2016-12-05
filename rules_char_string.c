@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 20:16:51 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 19:17:38 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 20:09:59 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ int			ft_print_string(t_flag *flags, va_list ap)
 	}
 	len = ft_strlen(s);
 	n = len;
-	if (flags->min_width)
+	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);	
 	ft_putstr(s);
+	if (flags->min_width && flags->precedence == '-') 
+		n += ft_print_minwidth(flags, len);	
 	return (n);
 }
 
@@ -42,9 +44,11 @@ int			ft_print_char(t_flag *flags, va_list ap)
 	c = va_arg(ap, int);
 	len = 1;
 	n = len;
-	if (flags->min_width)
+	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);
 	ft_putchar(c);
+	if (flags->min_width && flags->precedence == '-')
+		n += ft_print_minwidth(flags, len);	
 	return (n);
 }
 
@@ -61,13 +65,15 @@ int			ft_print_pointer(t_flag *flags, va_list ap)
 	if (p != NULL)
 		len = ft_strlen(new) + 2;
 	n = len;
-	if (flags->min_width)
+	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);
 	ft_putstr("0x");
 	if (p == NULL)
 		ft_putchar('0');
 	else
 		ft_putstr(new);
+	if (flags->min_width && flags->precedence == '-')
+		n += ft_print_minwidth(flags, len);
 	return (n);
 }
 

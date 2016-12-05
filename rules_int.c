@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 22:48:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 18:21:58 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 20:03:41 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@ int			ft_print_int(t_flag *flags, va_list ap)
 
 	i = ft_get_signvalue(flags, ap);
 	len = (int)ft_intlen(i);
+	if (i < 0 && flags->precedence == '0')
+	{
+		i *= -1;
+		ft_putchar('-');
+	}
 	n = len;
-	if (flags->min_width)
+	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);
 	ft_putnbr(i);
+	if (flags->min_width && flags->precedence == '-')
+		n += ft_print_minwidth(flags, len);
 	return (n);
 }
 
@@ -37,9 +44,11 @@ int			ft_print_unsigned(t_flag *flags, va_list ap)
 	u = ft_get_unsignvalue(flags, ap);
 	len = ft_unsintlen(u);
 	n = len;
-	if (flags->min_width)
+	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);
 	ft_putunsnbr(u);
+	if (flags->min_width && flags->precedence == '-')
+		n += ft_print_minwidth(flags, len);
 	return (n);
 }
 
@@ -51,9 +60,16 @@ int			ft_print_long(t_flag *flags, va_list ap)
 
 	i =  ft_get_signvalue(flags, ap);
 	len = (int)ft_intlen(i);
+	if (i < 0 && flags->precedence == '0')
+	{
+		i *= -1;
+		ft_putchar('-');
+	}
 	n = len;
-	if (flags->min_width)
+	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);
 	ft_putnbr(i);
+	if (flags->min_width && flags->precedence == '-')
+		n += ft_print_minwidth(flags, len);
 	return (n);
 }
