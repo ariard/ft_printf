@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 20:12:54 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 20:34:51 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct		s_flag
 	int				max_width;
 	char			type;
 	char			promotion;
+	char			invalid;
 }					t_flag;
 
 typedef struct		s_print

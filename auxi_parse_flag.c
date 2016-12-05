@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 20:13:21 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 20:49:47 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
 		i++;
 	}
 	if (flags->type == 0)
-		return (0);
+	{
+		flags->invalid = *format;
+		return (1);
+	}
 	return (1);
 }
 

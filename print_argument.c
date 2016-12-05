@@ -6,12 +6,18 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 23:02:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 19:57:46 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 20:42:05 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+
+int				ft_print_invalid(t_flag *flags)
+{
+	(void)flags;
+	return (0);
+}
 
 int				ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags)
 {
@@ -33,5 +39,7 @@ int				ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags)
 			len += tab[i]->f(flags, ap);
 		i++;
 	}
+	if (flags->invalid)
+		len += ft_print_invalid(flags);
 	return (len);
 }

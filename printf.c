@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 18:24:10 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 20:50:06 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,11 @@ int				ft_printf(const char *format, ...)
 			{
 				if ((len = ft_parse_flag(format, flags, tab)) == 0)
 					len = 1;
-				else
+				else	
 					len2 = ft_print_formated_argument(ap, tab, flags);
 				n += len2;
+				if (flags->invalid)
+					len = 0;
 				format += len + 1;
 			}
 		len = ft_strlenchr(format, '%');
