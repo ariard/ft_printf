@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 20:16:51 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 15:25:34 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 18:58:37 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 int			ft_print_string(t_flag *flags, va_list ap)
 {
 	char	*s;
+	int		n;
+	int		len;
 
 	s = va_arg(ap, char *);
 	if (s == NULL)
@@ -23,29 +25,36 @@ int			ft_print_string(t_flag *flags, va_list ap)
 		ft_putstr("(null)");
 		return (6);
 	}
-	if (flags->max_width)
-		ft_putstrn(s, flags->max_width);
-	else
-		ft_putstr(s);
-	return (ft_strlen(s));
+	len = ft_strlen(s);
+	n = len;
+	if (flags->min_width)
+		n += ft_print_minwidth(flags, len);	
+	ft_putstr(s);
+	return (n);
 }
 
 int			ft_print_char(t_flag *flags, va_list ap)
 {
 	char	c;
+	int		n;
+	int		len;
 
-	(void)flags;
 	c = va_arg(ap, int);
+	len = 1;
+	n = len;
+	if (flags->min_width)
+		n += ft_print_minwidth(flags, len);
 	ft_putchar(c);
-	return (1);
+	return (n);
 }
 
 int			ft_print_pointer(t_flag *flags, va_list ap)
 {
 	void	*p;
 	int		n;
+	int		len;
+	char	*new;
 
-	(void)flags;
 	p = va_arg(ap, void *);
 	if (p == NULL)
 	{
@@ -53,7 +62,8 @@ int			ft_print_pointer(t_flag *flags, va_list ap)
 		return (3);
 	}
 	ft_putstr("0x");
-	n = ft_put_hex((unsigned long long int)p);
+	new = ft_conv_hex((unsigned long long int)p);
+	n = ft_putstr(new);
 	return (n + 2);
 }
 

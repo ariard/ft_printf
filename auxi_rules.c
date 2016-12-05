@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 17:47:52 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 18:06:59 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,18 @@ unsigned long long int	ft_get_unsignvalue(t_flag *flags, va_list ap)
 	else
 		return (va_arg(ap, unsigned long long int));
 	return (0);
+}
+
+int						ft_print_minwidth(t_flag *flags, int len)
+{
+	int		n;
+
+	n = 0;
+	if ((len = flags->min_width - len) > 0)
+	{
+		n += len;
+		while (len--)
+			ft_putchar(32);
+	}
+	return (n);
 }

@@ -300,9 +300,9 @@ int		main(void)
 
 	len2 = 0;
 	len = 0;
-	len = ft_printf("%jd", LLONG_MIN);
+	len = ft_printf("{%3c}", 0);
 	ft_putchar(10);
-	len2 = printf("%jd", LLONG_MIN);
+	len2 = printf("{%3c}", 0);
 
 	printf("\n\n");
 	ft_putnbr(len);

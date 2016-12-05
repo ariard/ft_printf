@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 17:43:16 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/05 18:07:21 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,7 @@ int		ft_print_short(t_flag *flags, va_list ap);
 long long int		ft_get_signvalue(t_flag *flags, va_list ap);
 
 unsigned long long	ft_get_unsignvalue(t_flag *flags, va_list ap);
+
+int					ft_print_minwidth(t_flag *flags, int len);
 
 #endif
