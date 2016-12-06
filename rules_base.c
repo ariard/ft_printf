@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/04 17:48:49 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 22:46:24 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/06 00:55:29 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,27 @@ int					ft_print_hex(t_flag *flags, va_list ap)
 	len = 1;
 	if (x != 0)
 		len = ft_strlen(new);
-	n = len;
 	if (flags->precedence == '#' && x != 0 && flags->min_width)
+	{
 		len += 2;
+		if (flags->precedence == '#' && flags->type == 'x' 
+			&& (flags->precedence == '0' || flags->zero == '0'))
+			n += ft_putstr("0x");
+		else if (flags->precedence == '#' && flags->type == 'X' && (flags->precedence == '0' || flags->zero == '0'))
+			n += ft_putstr("0X");
+	}
+	n = len;
 	if (flags->min_width && flags->precedence != '-')
 		n += ft_print_minwidth(flags, len);
 	if (x == 0)
 		ft_putchar('0');
 	else
-	{	
-		if (flags->precedence == '#' && flags->type == 'x')
+	{
+		if (flags->precedence == '#' && flags->type == 'x' 
+			&& flags->precedence != '0' && flags->zero != '0')
 			n += ft_putstr("0x");
-		else if (flags->precedence == '#' && flags->type == 'X')
+		else if (flags->precedence == '#' && flags->type == 'X' 
+			&& flags->precedence != '0' && flags->zero != '0')
 			n += ft_putstr("0X");
 		ft_putstr(new);
 	}

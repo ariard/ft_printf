@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 23:21:50 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/06 01:22:56 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int						ft_print_minwidth(t_flag *flags, int len)
 	if ((len = flags->min_width - len) > 0)
 	{
 		n += len;
-		if (flags->precedence != '0')	
+		if (flags->precedence != '0' && !flags->zero)	
 			while (len--) 
 				ft_putchar(32);
 		else
@@ -58,11 +58,11 @@ int						ft_print_minwidth(t_flag *flags, int len)
 
 int						ft_print_sign(t_flag *flags, long long int i)
 {
-	if (flags->precedence == '+' && i > 0)
+	if (flags->precedence == '+' && i >= 0)
 		ft_putchar('+');
-	else if (flags->precedence == ' ' && i > 0)
+	else if (flags->precedence == ' ' && i >= 0)
 		ft_putchar(' ');
-	if ((flags->precedence == ' ' || flags->precedence == '+') && i > 0)
+	if ((flags->precedence == ' ' || flags->precedence == '+') && i >= 0)
 		return (1);
 	return (0);
 }

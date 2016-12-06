@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 23:06:53 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/06 01:25:01 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,47 @@ int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
 	return (1);
 }
 
-void			ft_solve_conflict(t_flag *flags, const char *format)
+void				ft_solve_conflict(t_flag *flags, const char *format)
 {
-	char		c;
-	
-	if (flags->precedence == ' ')
+	char			c;
+	const char		*new;
+	const char		*new2;
+
+	new = format;
+	new2 = format;
+	if (flags->precedence == '0')
 		while (*format && *format != '%') 
 		{
-			if (*format == '+')
-				flags->precedence = '+' ;
+			if (*format == ' ')
+				flags->precedence = ' ' ;
 			format--;
-		}	
+		}
+	if (flags->precedence == ' ' || flags->precedence == '0')
+		while (*new2 && *new2 != '%') 
+		{
+			if (*new2 == '+')
+				flags->precedence = '+' ;
+			new2--;
+		}
+	while (*new != '%')
+		new--;
+	new2 = new;
+	if (flags->precedence == '#' || flags->precedence == '+' 
+		|| flags->precedence == ' ') 
+		while (*new && (*new == '#' || *new == '0' || *new == ' ' || *new == '+'
+			|| *new == '%'))
+		{	
+			if (*new == '0')
+				flags->zero = '0';
+			new++;
+		}
+	if (flags->precedence == '+')
+		while (*new2 && *new2 != flags->precedence)
+		{
+			if (*new2 == '#')
+				flags->precedence = '#';
+			new2++;
+		}
 	if ((flags->promotion == 'l' || flags->promotion == 'y') && (
 		flags->type == 'd' || flags->type == 'i' ))
 		flags->type = 'D';

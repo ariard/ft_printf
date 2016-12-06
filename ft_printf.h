@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 23:14:46 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/06 00:09:55 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 typedef struct		s_flag
 {
 	char			precedence;
+	char			zero;
 	int				min_width;
 	int				max_width;
 	char			type;

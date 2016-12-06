@@ -300,9 +300,9 @@ int		main(void)
 
 	len2 = 0;
 	len = 0;
-	len = ft_printf("{% d}", -9999);
+	len = ft_printf("{%+03d}", 0);
 	ft_putchar(10);
-	len2 = printf("{% d}", -9999);
+	len2 = printf("{%+03d}", 0);
 
 	printf("\n\n");
 	ft_putnbr(len);
