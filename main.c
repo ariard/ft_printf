@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "ft_printf.h"
 #include <limits.h>
+#include <locale.h>
 
 int		main(void)
 {
@@ -301,9 +302,10 @@ int		main(void)
 	len = 0;
 	int	i;
 
-	len = ft_printf("{%-15Z}", 123);
+	setlocale(LC_ALL, "");
+	len = ft_printf("%C", L'ش');
 	ft_putchar(10);
-	len2 = printf("{%-15Z}", 123);
+	len2 = printf("%lc", L'ش');
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);

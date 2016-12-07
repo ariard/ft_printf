@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv_hexmaj.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_binary.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 18:47:30 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 21:48:36 by ariard           ###   ########.fr       */
+/*   Created: 2016/12/08 00:19:57 by ariard            #+#    #+#             */
+/*   Updated: 2016/12/08 00:23:24 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char		*ft_conv_hexmaj(unsigned long long int i, char new[])
+static int		ft_recursive_power(int nb, int power)
 {
-	char	s[1024];
-	char	*base;
-	int		index;
-	int		j;
+	if (power > 1)
+		nb = (nb * ft_recursive_power(nb, power - 1));
+	if (power == 0)
+		nb = 1;
+	if (power < 0)
+		nb = 0;
+	return (nb);
+}
 
-	ft_bzero(s, 1024);
-	ft_bzero(new, 1024);
-	base = "0123456789ABCDEF";
-	j = 0;
-	if (i == 0)
-		s[j++] = '0';
-	while (i)
+int				ft_atoi_binary(char *s)
+{
+	unsigned long long 	nb;
+	int					rank;
+
+	nb = 0;
+	rank = ft_strlen(s) - 1;
+	while(*s >= '0' && *s <= '9')
 	{
-		index = i % 16;
-		s[j] = base[index];
-		j++;
-		i = i / 16;
+		nb += (*s - '0') * ft_recursive_power(2, rank);
+		s++;
+		rank--;
 	}
-	s[j] = 0;
-	ft_strrev(s);
-	ft_strcpy(new, s);
-	return (new);
+	return (nb);
 }

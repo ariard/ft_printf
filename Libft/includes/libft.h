@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 19:52:29 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 23:36:10 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/08 00:23:51 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int					ft_atoi(const char *str);
 
+int					ft_atoi_binary(char *s);
+
 int					ft_isalpha(int c);
 
 int					ft_isdigit(int c);
@@ -131,6 +133,8 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				**ft_strsplit(char const *s, char c);
 
 char				*ft_itoa(int n);
+
+char				*ft_itoa_binary(int n, char new[]);
 
 int					ft_putchar(char c);
 

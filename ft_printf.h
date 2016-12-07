@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 16:23:24 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 21:16:11 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define FT_PRINTF_H
 
 # include "libft/includes/libft.h"
-# include "stdarg.h"
+# include <stdarg.h>
+# include <wchar.h>
+
 
 #define RESET "\x1B[0m"
 #define RED	"\x1B[31m"
@@ -109,5 +111,9 @@ int					ft_distribute_char(t_flag *flags, va_list ap);
 int					ft_distribute_pourcent(t_flag *flags, va_list ap);
 
 int					ft_distribute_invalid(t_flag *flags);
+
+int					ft_distribute_wchar(t_flag *flags, va_list ap);
+
+int					ft_putwchar(wchar_t w);
 
 #endif

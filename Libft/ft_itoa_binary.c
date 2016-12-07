@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv_hexmaj.c                                   :+:      :+:    :+:   */
+/*   ft_itoa_binary.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 18:47:30 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 21:48:36 by ariard           ###   ########.fr       */
+/*   Created: 2016/12/07 21:41:39 by ariard            #+#    #+#             */
+/*   Updated: 2016/12/07 21:47:21 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char		*ft_conv_hexmaj(unsigned long long int i, char new[])
+char		*ft_itoa_binary(int n, char new[])
 {
-	char	s[1024];
-	char	*base;
-	int		index;
-	int		j;
+	char				s[1024];
+	int					index;
+	unsigned long long 	nb;
 
+	if (n < 0)
+		return (0);
+	nb = n;
+	index = 0;
 	ft_bzero(s, 1024);
 	ft_bzero(new, 1024);
-	base = "0123456789ABCDEF";
-	j = 0;
-	if (i == 0)
-		s[j++] = '0';
-	while (i)
+	if (nb == 0)
+		s[index] = '0';
+	while (nb > 0)
 	{
-		index = i % 16;
-		s[j] = base[index];
-		j++;
-		i = i / 16;
+		s[index++] = nb % 2 + '0';
+		nb = nb / 2;
 	}
-	s[j] = 0;
+	s[index] = 0;
 	ft_strrev(s);
 	ft_strcpy(new, s);
 	return (new);
