@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 13:19:22 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 14:35:54 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[15] = ft_create_print('x', &ft_distribute_hex);
 	tab[16] = ft_create_print('X', &ft_distribute_hexmaj);
 	tab[17] = ft_create_print('C', &ft_nothing);
-	tab[18] = ft_create_print('c', &ft_nothing);
+	tab[18] = ft_create_print('c', &ft_distribute_char);
 	tab[19] = ft_create_print('%', &ft_nothing);
 	tab[20] = ft_create_print('y', &ft_nothing);
 	tab[21] = ft_create_print('w', &ft_nothing);

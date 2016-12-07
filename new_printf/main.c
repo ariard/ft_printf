@@ -301,9 +301,9 @@ int		main(void)
 	len = 0;
 	int	i;
 
-	len = ft_printf("{%4.s}", "42");
+	len = ft_printf("{%5.c}", 0);
 	ft_putchar(10);
-	len2 = printf("{%4.s}", "42");
+	len2 = printf("{%5.c}", 0);
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);
