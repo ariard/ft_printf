@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 22:04:41 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 01:07:49 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,6 @@ int						ft_print_minwidth(t_flag *flags, int len)
 	{
 		n += len;
 		if (!flags->zero)
-			while (len--) 
-				ft_putchar(32);
-		else if (flags->max_width > 0)
 			while (len--) 
 				ft_putchar(32);
 		else

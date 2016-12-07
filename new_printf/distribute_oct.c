@@ -6,11 +6,27 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:20:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 23:08:16 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 01:06:39 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int			ft_print_oct4(t_flag *flags, unsigned long long int i)
+{
+	int		len;
+
+	len = 0;
+	if (flags->min_width)
+		len += ft_print_minwidth(flags, len);
+	if (flags->hex)
+		len += ft_print_hex(flags);
+	if (flags->max_width)
+		len += ft_print_maxwidth(flags, len);
+	if (flags->max_width)
+		len += ft_putchar('0');
+	return (len);
+}
 
 int			ft_print_oct1(t_flag *flags, va_list ap)
 {
@@ -25,8 +41,10 @@ int			ft_print_oct1(t_flag *flags, va_list ap)
 		len = ft_strlen(new);
 	if (flags->max_width)
 		flags->max_width -= len;
+	if (i == 0 && (flags->nullwidth || flags->max_width))
+		return (ft_print_oct4(flags, i));
 	if (flags->hex && i != 0)
-		ft_print_hex(flags);
+		len += ft_print_hex(flags);
 	if (flags->max_width)
 		len += ft_print_maxwidth(flags, len);
 	ft_putstr(new);
@@ -48,6 +66,8 @@ int			ft_print_oct2(t_flag *flags, va_list ap)
 		len = ft_strlen(new);
 	if (flags->max_width)
 		flags->max_width -= len;
+	if (i == 0 && (flags->nullwidth || flags->max_width))
+		return (ft_print_oct4(flags, i));
 	if (flags->min_width)
 		len += ft_print_minwidth(flags, len);
 	if (flags->hex && i != 0)

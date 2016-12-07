@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 14:29:49 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 21:51:03 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 00:58:05 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,31 +23,6 @@ int			ft_print_int4(t_flag *flags, long long int i)
 		len += ft_print_sign(flags, i);
 	if (flags->max_width)
 		len += ft_print_maxwidth(flags, len);
-	return (len);
-}
-
-int			ft_print_int1(t_flag *flags, va_list ap)
-{
-	int		i;
-	int		len;
-
-	i = ft_get_signvalue(flags, ap);
-	len = ft_intlen(i);
-	if (flags->max_width && i > 0)
-		flags->max_width -= len;
-	else
-		flags->max_width -= len - 1;
-	if (i == 0 && (flags->nullwidth || flags->max_width))
-		return (ft_print_int4(flags, i));
-	if (flags->sign || flags->space)
-		len += ft_print_sign(flags, i);
-	if (i < 0)
-		ft_putchar('-');
-	if (flags->max_width)
-		len += ft_print_maxwidth(flags, len);
-	ft_putnbr(i);
-	if (flags->min_width)
-		len += ft_print_minwidth(flags, len);
 	return (len);
 }
 
@@ -68,6 +43,33 @@ int			ft_print_int3(t_flag *flags, long long int i)
 	ft_putnbr(i);
 	if (i == 0)
 		len += 1;
+	return (len);
+}
+
+int			ft_print_int1(t_flag *flags, va_list ap)
+{
+	int		i;
+	int		len;
+
+	i = ft_get_signvalue(flags, ap);
+	len = ft_intlen(i);
+	if (flags->max_width && i > 0)
+		flags->max_width -= len;
+	else
+		flags->max_width -= len - 1;
+	if (i == 0 && (flags->nullwidth || flags->max_width))
+		return (ft_print_int4(flags, i));
+	if (i <= 0 && flags->zero && !flags->nullwidth)
+		return (ft_print_int3(flags, i));
+	if (flags->sign || flags->space)
+		len += ft_print_sign(flags, i);
+	if (i < 0)
+		ft_putchar('-');
+	if (flags->max_width)
+		len += ft_print_maxwidth(flags, len);
+	ft_putnbr(i);
+	if (flags->min_width)
+		len += ft_print_minwidth(flags, len);
 	return (len);
 }
 

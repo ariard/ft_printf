@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 01:25:01 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/06 01:52:00 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void				ft_solve_conflict(t_flag *flags, const char *format)
 				flags->zero = '0';
 			new++;
 		}
-	if (flags->precedence == '+')
+	if (flags->precedence == '+' || flags->precedence == ' ')
 		while (*new2 && *new2 != flags->precedence)
 		{
 			if (*new2 == '#')

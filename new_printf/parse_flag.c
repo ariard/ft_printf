@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 17:48:44 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 22:34:16 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 00:41:34 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ int				ft_parse_flag(const char *format, t_flag *flags, t_print *tab[])
 		n = 1;
 		flags->nullwidth = 1;
 	}
+	if (n == 2 && !flags->max_width)
+		flags->nullwidth = 1;
 	format += n;
 	len += n;
 	n = ft_parse_prom(format, flags, tab);	

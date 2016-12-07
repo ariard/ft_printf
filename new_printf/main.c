@@ -302,10 +302,9 @@ int		main(void)
 	len = 0;
 	int	i;
 
-	len = ft_printf("%#x", 42);
+	len = ft_printf("%09.2u", 1234);
 	ft_putchar(10);
-	len2 = printf("%#x", 42);
-
+	len2 = printf("%09.2u", 1234);
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);

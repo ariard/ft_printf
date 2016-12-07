@@ -300,9 +300,11 @@ int		main(void)
 
 	len2 = 0;
 	len = 0;
-	len = ft_printf("{%# 3d}", 0);
+	int	i;
+
+	len = ft_printf("{%-20p}", &i);
 	ft_putchar(10);
-	len2 = printf("{%# 3d}", 0);
+	len2 = printf("{%-20p}", &i);
 
 	printf("\n\n");
 	ft_putnbr(len);

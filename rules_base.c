@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/04 17:48:49 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 00:55:29 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/06 01:30:52 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ int					ft_print_hex(t_flag *flags, va_list ap)
 	{
 		if (flags->precedence == '#' && flags->type == 'x' 
 			&& flags->precedence != '0' && flags->zero != '0')
-			n += ft_putstr("0x");
+			ft_putstr("0x");
 		else if (flags->precedence == '#' && flags->type == 'X' 
 			&& flags->precedence != '0' && flags->zero != '0')
-			n += ft_putstr("0X");
+			ft_putstr("0X");
 		ft_putstr(new);
 	}
 	if (flags->min_width && flags->precedence == '-')

@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 17:57:42 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 01:05:19 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void				ft_solve_conflict(t_flag *flags, const char *format)
 	}
 	if (flags->hex && (flags->sign || flags->space) && flags->type == 'd')
 		flags->hex = 0;
+	if (flags->zero && (flags->max_width || flags->nullwidth))
+		flags->zero = 0;
 	if ((flags->promotion == 'l' || flags->promotion == 'y') && (
 		flags->type == 'd' || flags->type == 'i' ))
 		flags->type = 'D';

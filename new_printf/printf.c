@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 22:49:56 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/06 23:58:24 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[4] = ft_create_print('0', &ft_nothing);
 	tab[5] = ft_create_print('s', &ft_nothing);
 	tab[6] = ft_create_print('S', &ft_nothing);
-	tab[7] = ft_create_print('p', &ft_nothing);
+	tab[7] = ft_create_print('p', &ft_distribute_pointer);
 	tab[8] = ft_create_print('d', &ft_distribute_int);
 	tab[9] = ft_create_print('D', &ft_distribute_long);
 	tab[10] = ft_create_print('i', &ft_distribute_int);
@@ -51,7 +51,7 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[13] = ft_create_print('u', &ft_distribute_uns);
 	tab[14] = ft_create_print('U', &ft_distribute_uns);
 	tab[15] = ft_create_print('x', &ft_distribute_hex);
-	tab[16] = ft_create_print('X', &ft_nothing);
+	tab[16] = ft_create_print('X', &ft_distribute_hexmaj);
 	tab[17] = ft_create_print('C', &ft_nothing);
 	tab[18] = ft_create_print('c', &ft_nothing);
 	tab[19] = ft_create_print('%', &ft_nothing);
