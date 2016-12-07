@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 00:00:54 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 13:19:02 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,7 @@ int					ft_distribute_hex(t_flag *flags, va_list ap);
 int					ft_distribute_hexmaj(t_flag *flags, va_list ap);
 
 int					ft_distribute_pointer(t_flag *flags, va_list ap);
+
+int					ft_distribute_string(t_flag *flags, va_list ap);
 
 #endif

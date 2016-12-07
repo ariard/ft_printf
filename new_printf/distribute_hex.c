@@ -6,13 +6,13 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:52:02 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 00:37:26 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 13:59:03 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_print_hex4(t_flag *flags, unsigned long long int i)
+int			ft_print_hex4(t_flag *flags)
 {
 	int		len;
 
@@ -40,7 +40,7 @@ int			ft_print_hex1(t_flag *flags, va_list ap)
 	if (flags->max_width)
 		flags->max_width -= len;
 	if (i == 0 && (flags->nullwidth || flags->max_width))
-		return (ft_print_hex4(flags, i));
+		return (ft_print_hex4(flags));
 	if (flags->hex && i != 0)
 		len += ft_print_hex(flags);
 	if (flags->max_width)
@@ -65,7 +65,7 @@ int			ft_print_hex2(t_flag *flags, va_list ap)
 	if (flags->max_width)
 		flags->max_width -= len;
 	if (i == 0 && (flags->nullwidth || flags->max_width))
-		return (ft_print_hex4(flags, i));
+		return (ft_print_hex4(flags));
 	if (flags->min_width)
 		len += ft_print_minwidth(flags, len);
 	if (flags->hex && i != 0)

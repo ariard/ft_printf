@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 17:48:44 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 00:41:34 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 13:57:44 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int				ft_parse_precedence(const char *format, t_flag *flags, t_print *tab[])
 {
 	int			len;
 
+	(void)tab;
 	len = 0;
 	while (*format && (*format == '#' || *format == '0' || *format == '+' || *format == ' ' || *format == '-'))
 	{

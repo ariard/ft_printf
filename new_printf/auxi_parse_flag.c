@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 01:05:19 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 13:57:27 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
 
 void				ft_solve_conflict(t_flag *flags, const char *format)
 {
+	(void)format;
 	if (flags->zero && flags->minus)
 		flags->zero = 0;
 	if (flags->space && flags->sign)

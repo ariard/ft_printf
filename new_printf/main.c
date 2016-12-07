@@ -297,14 +297,13 @@ int		main(void)
 //	len2 = ft_printf("{%}");
 //	printf("\n%d vs %d\n", len, len2);
 
-
 	len2 = 0;
 	len = 0;
 	int	i;
 
-	len = ft_printf("%09.2u", 1234);
+	len = ft_printf("{%4.s}", "42");
 	ft_putchar(10);
-	len2 = printf("%09.2u", 1234);
+	len2 = printf("{%4.s}", "42");
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);

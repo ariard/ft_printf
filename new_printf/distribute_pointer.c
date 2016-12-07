@@ -6,13 +6,13 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 23:49:57 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 00:57:41 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 14:16:18 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_print_pointer4(t_flag *flags, unsigned long long int i)
+int			ft_print_pointer4(t_flag *flags)
 {
 	int		len;
 
@@ -41,12 +41,10 @@ int			ft_print_pointer1(t_flag *flags, va_list ap)
 	if (flags->max_width)
 		flags->max_width -= len;
 	if (p == 0 && flags->nullwidth)
-		return (ft_print_pointer4(flags, (unsigned long long int)p));
+		return (ft_print_pointer4(flags));
 	len += ft_print_hex(flags);
 	if (flags->max_width)
-		flags->max_width -= ft_strlen(new);
-	if (flags->max_width)
-		len += ft_print_maxwidth(flags, len);
+		len += ft_print_maxwidth(flags, len + 2);
 	ft_putstr(new);
 	if (flags->min_width)
 		len += ft_print_minwidth(flags, len);
@@ -64,13 +62,13 @@ int			ft_print_pointer2(t_flag *flags, va_list ap)
 	len = 1;
 	if (i != 0)
 		len = ft_strlen(new);
-	if (i == 0 && flags->nullwidth)
-		return (ft_print_pointer4(flags, (unsigned long long int)i));
-	if (flags->min_width)
-		len += ft_print_minwidth(flags, len);
-	len += ft_print_hex(flags);
 	if (flags->max_width)
-		flags->max_width -= ft_strlen(new);
+		flags->max_width -= len; 
+	if (i == 0 && flags->nullwidth)
+		return (ft_print_pointer4(flags));
+	if (flags->min_width)
+		len += ft_print_minwidth(flags, len + 2);
+	len += ft_print_hex(flags);
 	if (flags->max_width)
 		len += ft_print_maxwidth(flags, len);
 	ft_putstr(new);
