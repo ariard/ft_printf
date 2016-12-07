@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 01:52:00 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 16:29:03 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int				ft_parse_prom(const char *format, t_flag *flags, t_print *tab[])
 {
 	int			i;
 
+	flags->promotion = 0;
 	i = 20;
 	if (*format == 'l' && *(format + 1) == 'l')
 	{
@@ -53,52 +54,27 @@ int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
 	if (flags->type == 0)
 	{
 		flags->invalid = *format;
-		return (1);
+		return (0);
 	}
 	return (1);
 }
 
 void				ft_solve_conflict(t_flag *flags, const char *format)
 {
-	char			c;
-	const char		*new;
-	const char		*new2;
-
-	new = format;
-	new2 = format;
-	if (flags->precedence == '0')
-		while (*format && *format != '%') 
-		{
-			if (*format == ' ')
-				flags->precedence = ' ' ;
-			format--;
-		}
-	if (flags->precedence == ' ' || flags->precedence == '0')
-		while (*new2 && *new2 != '%') 
-		{
-			if (*new2 == '+')
-				flags->precedence = '+' ;
-			new2--;
-		}
-	while (*new != '%')
-		new--;
-	new2 = new;
-	if (flags->precedence == '#' || flags->precedence == '+' 
-		|| flags->precedence == ' ') 
-		while (*new && (*new == '#' || *new == '0' || *new == ' ' || *new == '+'
-			|| *new == '%'))
-		{	
-			if (*new == '0')
-				flags->zero = '0';
-			new++;
-		}
-	if (flags->precedence == '+' || flags->precedence == ' ')
-		while (*new2 && *new2 != flags->precedence)
-		{
-			if (*new2 == '#')
-				flags->precedence = '#';
-			new2++;
-		}
+	(void)format;
+	if (flags->zero && flags->minus)
+		flags->zero = 0;
+	if (flags->space && flags->sign)
+		flags->space = 0;
+	if (flags->hex && (flags->sign || flags->space) && flags->type == 'x')
+	{
+		flags->space = 0;
+		flags->sign = 0;
+	}
+	if (flags->hex && (flags->sign || flags->space) && flags->type == 'd')
+		flags->hex = 0;
+	if (flags->zero && flags->max_width)
+		flags->zero = 0;
 	if ((flags->promotion == 'l' || flags->promotion == 'y') && (
 		flags->type == 'd' || flags->type == 'i' ))
 		flags->type = 'D';

@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 01:52:02 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 16:23:41 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,18 @@ int						ft_print_minwidth(t_flag *flags, int len)
 	int		n;
 
 	n = 0;
+	if (flags->max_width > 0  && !flags->minus && flags->type != 's')
+		len += flags->max_width;
+	if ((flags->sign || flags->space) && !flags->minus)
+		len += 1;
+	if (flags->hex && (flags->type == 'x' || flags->type == 'X'))
+		len += 2;
+	if (flags->hex && (flags->type == 'o' || flags->type == 'O'))
+		len += 1;
 	if ((len = flags->min_width - len) > 0)
 	{
 		n += len;
-		if (flags->precedence != '0' && !flags->zero)	
+		if (!flags->zero)
 			while (len--) 
 				ft_putchar(32);
 		else
@@ -56,13 +64,28 @@ int						ft_print_minwidth(t_flag *flags, int len)
 	return (n);
 }
 
+int						ft_print_maxwidth(t_flag *flags, int len)
+{
+	int		n;
+
+	n = 0;
+	if ((len = flags->max_width) > 0)
+	{
+		n += len;
+		while (len--) 
+			ft_putchar(48);
+	}
+	return (n);
+}
+
 int						ft_print_sign(t_flag *flags, long long int i)
 {
-	if (flags->precedence == '+' && i >= 0)
-		ft_putchar('+');
-	else if (flags->precedence == ' ' && i >= 0)
-		ft_putchar(' ');
-	if ((flags->precedence == ' ' || flags->precedence == '+') && i >= 0)
-		return (1);
-	return (0);
+	int					n;
+
+	n = 0;
+	if (flags->sign && i >= 0)
+		n += ft_putchar('+');
+	else if (flags->space == ' ' && i >= 0)
+		n += ft_putchar(' ');
+	return (n);
 }

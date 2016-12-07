@@ -297,15 +297,13 @@ int		main(void)
 //	len2 = ft_printf("{%}");
 //	printf("\n%d vs %d\n", len, len2);
 
-
 	len2 = 0;
 	len = 0;
 	int	i;
 
-	len = ft_printf("{%-20p}", &i);
+	len = ft_printf("{%-15Z}", 123);
 	ft_putchar(10);
-	len2 = printf("{%-20p}", &i);
-
+	len2 = printf("{%-15Z}", 123);
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);

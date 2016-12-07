@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 19:52:29 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/05 18:51:29 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/06 23:36:10 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,11 +158,11 @@ void				ft_putendl_fd(char const *s, int fd);
 
 void				ft_putnbr_fd(int n, int fd);
 
-char				*ft_conv_hexmaj(unsigned long long int i);
+char				*ft_conv_hexmaj(unsigned long long int i, char new[]);
 
-char				*ft_conv_hex(unsigned long long int i);
+char				*ft_conv_hex(unsigned long long int i, char new[]);
 
-char				*ft_conv_oct(unsigned long long int i);
+char				*ft_conv_oct(unsigned long long int i, char new[]);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 

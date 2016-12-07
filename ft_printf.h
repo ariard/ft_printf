@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/06 01:51:58 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/07 16:23:24 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,14 @@
 
 typedef struct		s_flag
 {
-	char			precedence;
+	char			sign;
+	char			space;
 	char			zero;
+	char			minus;
+	char			hex;
 	int				min_width;
 	int				max_width;
+	int				nullwidth;
 	char			type;
 	char			promotion;
 	char			invalid;
@@ -68,7 +72,7 @@ int		ft_print_octal(t_flag *flags, va_list ap);
 
 int		ft_print_unsigned(t_flag *flags, va_list ap);
 
-int		ft_print_hex(t_flag *flags, va_list ap);
+int		ft_print_hex(t_flag *flags);
 
 int		ft_print_long(t_flag *flags, va_list ap);
 
@@ -80,6 +84,30 @@ unsigned long long	ft_get_unsignvalue(t_flag *flags, va_list ap);
 
 int					ft_print_minwidth(t_flag *flags, int len);
 
+int					ft_print_maxwidth(t_flag *flags, int len);
+
 int					ft_print_sign(t_flag *flags, long long int i);
+
+int					ft_distribute_int(t_flag *flags, va_list ap);
+
+int					ft_distribute_long(t_flag *flags, va_list ap);
+
+int					ft_distribute_uns(t_flag *flags, va_list ap);
+
+int					ft_distribute_oct(t_flag *flags, va_list ap);
+
+int					ft_distribute_hex(t_flag *flags, va_list ap);
+
+int					ft_distribute_hexmaj(t_flag *flags, va_list ap);
+
+int					ft_distribute_pointer(t_flag *flags, va_list ap);
+
+int					ft_distribute_string(t_flag *flags, va_list ap);
+
+int					ft_distribute_char(t_flag *flags, va_list ap);
+
+int					ft_distribute_pourcent(t_flag *flags, va_list ap);
+
+int					ft_distribute_invalid(t_flag *flags);
 
 #endif
