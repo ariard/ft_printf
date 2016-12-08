@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 15:21:45 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/08 17:26:20 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[3] = ft_create_print('-', &ft_nothing);
 	tab[4] = ft_create_print('0', &ft_nothing);
 	tab[5] = ft_create_print('s', &ft_distribute_string);
-	tab[6] = ft_create_print('S', &ft_nothing);
+	tab[6] = ft_create_print('S', &ft_distribute_wstring);
 	tab[7] = ft_create_print('p', &ft_distribute_pointer);
 	tab[8] = ft_create_print('d', &ft_distribute_int);
 	tab[9] = ft_create_print('D', &ft_distribute_long);

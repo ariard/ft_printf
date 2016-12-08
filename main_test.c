@@ -1,9 +1,13 @@
 #include "ft_printf.h"
-#include <stdio.h>
+
 
 int			main(void)
 {
 
-	ft_printf("hello");
+	wchar_t		w;
+
+	w = L'我';
+
+	ft_putnbr(ft_sizewchar(w));
 	return (0);
 }

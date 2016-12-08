@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 21:16:11 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/08 18:39:49 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,16 @@ int					ft_distribute_invalid(t_flag *flags);
 
 int					ft_distribute_wchar(t_flag *flags, va_list ap);
 
+int					ft_distribute_wstring(t_flag *flags, va_list ap);
+
 int					ft_putwchar(wchar_t w);
+
+int					ft_putwstr(wchar_t *w, int cp);
+
+size_t				ft_strwlen(wchar_t *w);
+
+size_t				ft_sizewchar(wchar_t w);
+
+size_t				ft_strwlen_max(wchar_t *w, int cp);
 
 #endif

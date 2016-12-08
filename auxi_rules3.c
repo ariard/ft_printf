@@ -1,32 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_argument.c                                   :+:      :+:    :+:   */
+/*   auxi_rules3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 23:02:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 16:27:42 by ariard           ###   ########.fr       */
+/*   Created: 2016/12/08 16:54:52 by ariard            #+#    #+#             */
+/*   Updated: 2016/12/08 18:37:22 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int				ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags)
+size_t		ft_sizewchar(wchar_t w)
 {
-	int			i;
-	int 		len;
+	if ((int)w < 128)
+		return (1);
+	else if ((int)w < 2048)
+		return (2);
+	else if ((int)w < 65536)
+		return (3);
+	else
+		return (4);
+}
 
-	i = 5;
+size_t		ft_strwlen(wchar_t *w)
+{
+	int		len;
+
 	len = 0;
-	while (i < 21)
+	while (*w)
+		len += ft_sizewchar(*w++);
+	return (len);
+}
+
+size_t		ft_strwlen_max(wchar_t *w, int cp)
+{
+	int		len;
+
+	len = 0;
+	while ((cp -= (int)ft_sizewchar(*w)) >= 0)
 	{
-		if (flags->type == tab[i]->c)
-			len = tab[i]->f(flags, ap);
-		i++;
+		len += (int)ft_sizewchar(*w);
+		w++;
 	}
-	if (flags->invalid)
-		len = ft_distribute_invalid(flags);
 	return (len);
 }

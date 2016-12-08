@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:22:02 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 16:07:51 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/08 17:41:24 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,29 @@ int			ft_putwchar(wchar_t w)
 		len2 = 34;
 		n = ft_print_wchar(tab, w, len2);
 	}
+	return (n);
+}
+
+int			ft_putwstr(wchar_t	*w, int cp)
+{
+	int		n;
+
+	n  = 0;
+	if ((int)ft_strwlen(w) > cp && cp != -1)
+		while ((cp -= (int)ft_sizewchar(*w)) >= 0)
+		{
+			if (*w < 128)
+				n += ft_putchar(*w++);
+			else
+				n += ft_putwchar(*w++);
+		}
+	else
+		while (*w)
+		{
+			if (*w < 128)
+				n += ft_putchar(*w++);
+			else
+				n += ft_putwchar(*w++);
+		}
 	return (n);
 }

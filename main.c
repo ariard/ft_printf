@@ -305,9 +305,9 @@ int		main(void)
 	char	*s;
 
 	s = setlocale(LC_ALL, "");
-	len = ft_printf("%.C", L'𐀀');
+	len = ft_printf("{% 20p}", &i);
 	ft_putchar(10);
-	len2 = printf("%.C", L'𐀀');
+	len2 = printf("{% 20p}", &i);
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);
