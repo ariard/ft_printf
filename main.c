@@ -305,9 +305,9 @@ int		main(void)
 	char	*s;
 
 	s = setlocale(LC_ALL, "");
-	len = ft_printf("%#.4x", 4242);
+	len = ft_printf("%.C", L'𐀀');
 	ft_putchar(10);
-	len2 = printf("%#.4x", 4242);
+	len2 = printf("%.C", L'𐀀');
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);
