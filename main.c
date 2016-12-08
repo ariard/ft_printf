@@ -300,16 +300,17 @@ int		main(void)
 
 	len2 = 0;
 	len = 0;
-	int	i;
 
-	setlocale(LC_ALL, "");
-	len = ft_printf("%C", L'ش');
+	int	i;
+	char	*s;
+
+	s = setlocale(LC_ALL, "");
+	len = ft_printf("%#.4x", 4242);
 	ft_putchar(10);
-	len2 = printf("%lc", L'ش');
+	len2 = printf("%#.4x", 4242);
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);
 	ft_putnbr(len2);
-
 	return (0);
 }

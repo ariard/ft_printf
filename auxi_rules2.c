@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:22:02 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 00:32:24 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/08 15:27:32 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ char		*ft_fill(char *tab, char s[], char to_print[], int len2)
 {
 	int		len;
 	int		len3;
-	char	new[9];
 
 	len3 = ft_strlen(s) - 1;
 	len = ft_strlen(tab) - 1;
@@ -52,44 +51,59 @@ char		*ft_fill(char *tab, char s[], char to_print[], int len2)
 			to_print[len2] = '0';
 		len2++;
 	}
-	len2 = ft_strlen(to_print);
+	return (to_print);
+}
+
+int			ft_print_wchar(char *tab, wchar_t w, int len)
+{
+	char	to_print[1024];
+	char	s[1024];
+	char	new[9];
+	int		len2;
+	int		n;
+
+	ft_bzero(to_print, 1024);	
+	ft_bzero(s, 1024);
+	ft_itoa_binary((int)w, s);
+	ft_fill(tab, s, to_print, len);
 	len = 0;
+	len2 = ft_strlen(to_print);
+	n = 0;
 	while (len < len2)
 	{
 		ft_bzero(new, 9);
 		ft_strchrcpy(new, &to_print[len], ' ');
 		ft_putchar(ft_atoi_binary(new));
+		n++;
 		len += 9;
 	}
-	return (to_print);
+	return (n);
 }
 
 int			ft_putwchar(wchar_t w)
 {
-	char	s[1024];
-	char	to_print[18];
 	char	*tab;
 	int		len2;
+	char	n;
 
-	ft_bzero(to_print, 18);
-	ft_itoa_binary((int)w, s);
+	n = 0;
 	if ((int)w < 2048)
 	{
 		tab = "110xxxxx 10xxxxxx";
 		len2 = 16;
-		ft_fill(tab, s, to_print, len2);
+		n = ft_print_wchar(tab, w, len2);
 	}
 	else if ((int)w < 65536)
 	{
 		tab = "1110xxxx 10xxxxxx 10xxxxxx";
-		len2 = 23;
-		ft_fill(tab, s, to_print, len2);
+		len2 = 25;
+		n = ft_print_wchar(tab, w, len2);
 	}
-	else if ((int)w < 2097152)
+	else
 	{
-		tab = "11110xxx 10xxxxxx 10xxxxxx";
-		len2 = 30;
-		ft_fill(tab, s, to_print, len2);
+		tab = "11110xxx 10xxxxxx 10xxxxxx 10xxxxxx";
+		len2 = 34;
+		n = ft_print_wchar(tab, w, len2);
 	}
-	return (0);
+	return (n);
 }

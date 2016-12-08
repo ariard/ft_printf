@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 00:52:14 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/08 15:21:45 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[14] = ft_create_print('U', &ft_distribute_uns);
 	tab[15] = ft_create_print('x', &ft_distribute_hex);
 	tab[16] = ft_create_print('X', &ft_distribute_hexmaj);
-	tab[17] = ft_create_print('C', &ft_nothing);
+	tab[17] = ft_create_print('C', &ft_distribute_wchar);
 	tab[18] = ft_create_print('c', &ft_distribute_char);
 	tab[19] = ft_create_print('%', &ft_distribute_pourcent);
 	tab[20] = ft_create_print('y', &ft_nothing);
@@ -87,7 +87,7 @@ int				ft_printf(const char *format, ...)
 				if (len == 0 && !*(format + 1))
 					return (0);
 				if (flags->invalid)
-					len++;
+					len++;	
 				len2 = ft_print_formated_argument(ap, tab, flags);
 				n += len2;
 				format += len + 1;

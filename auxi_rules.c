@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 16:23:41 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/08 15:04:27 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ int						ft_print_maxwidth(t_flag *flags, int len)
 	int		n;
 
 	n = 0;
-	if ((len = flags->max_width) > 0)
-	{
-		n += len;
-		while (len--) 
-			ft_putchar(48);
-	}
+	if ((len = flags->max_width) > 0) 
+		{
+			n += len;
+			while (len--) 
+				ft_putchar(48);
+		}
 	return (n);
 }
 

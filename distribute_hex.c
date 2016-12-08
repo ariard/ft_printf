@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:52:02 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 13:59:03 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/08 15:26:26 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int			ft_print_hex2(t_flag *flags, va_list ap)
 	len = 1;
 	if (i != 0)
 		len = ft_strlen(new);
-	if (flags->max_width)
+	if (flags->max_width)	
 		flags->max_width -= len;
 	if (i == 0 && (flags->nullwidth || flags->max_width))
 		return (ft_print_hex4(flags));
@@ -81,6 +81,7 @@ int			ft_distribute_hex(t_flag *flags, va_list ap)
 	int		n;
 
 	n = 0;
+	
 	if (flags->minus)
 		n += ft_print_hex1(flags, ap);
 	else
