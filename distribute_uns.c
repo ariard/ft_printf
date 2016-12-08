@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:04:36 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 14:18:36 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 00:40:05 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int			ft_print_uns4(t_flag *flags)
 
 int			ft_print_uns1(t_flag *flags, va_list ap)
 {
-	long long		i;
-	int				len;
+	unsigned long long 		i;
+	int						len;
 
 	i = ft_get_unsignvalue(flags, ap);
 	len = ft_unsintlen(i);
-	if (flags->max_width && i >= 0)
+	if (flags->max_width)
 		flags->max_width -= len;
 	if (i == 0 && (flags->nullwidth || flags->max_width))
 		return (ft_print_uns4(flags));
@@ -62,16 +62,16 @@ int			ft_print_uns3(t_flag *flags, unsigned long long int i)
 
 int			ft_print_uns2(t_flag *flags, va_list ap)
 {
-	long long	i;
-	int			len;
+	unsigned long long	i;
+	int					len;
 
 	i = ft_get_unsignvalue(flags, ap);
 	len = ft_unsintlen(i);
-	if (flags->max_width && i > 0)
+	if (flags->max_width)
 		flags->max_width -= len;
 	if (i == 0 && (flags->nullwidth || flags->max_width))
 		return (ft_print_uns4(flags));
-	if (i <= 0 && flags->zero && !flags->nullwidth)
+	if (i == 0 && flags->zero && !flags->nullwidth)
 		return (ft_print_uns3(flags, i));
 	if (flags->min_width)
 		len += ft_print_minwidth(flags, len);

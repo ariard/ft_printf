@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 23:50:36 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 00:56:53 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,17 @@ void				ft_solve_conflict(t_flag *flags, const char *format)
 	if ((flags->promotion == 'l' || flags->promotion == 'y') && (
 		flags->type == 'd' || flags->type == 'i' ))
 		flags->type = 'D';
+	if ((flags->promotion == 'l' || flags->promotion == 'y') && flags->type == 'u')
+		flags->type = 'U';
+	if ((flags->promotion == 'l' || flags->promotion == 'y') && flags->type == 'o')
+		flags->type = 'O';
 	if ((flags->promotion == 'j' || flags->promotion == 'z') 
 		&& (flags->type == 'd' || flags->type == 'i'))
 		flags->type = 'D';
+	if ((flags->promotion == 'j' || flags->promotion == 'z') && flags->type == 'o')
+		flags->type = 'O';
+	if ((flags->promotion == 'j' || flags->promotion == 'z') && flags->type == 'u')
+		flags->type = 'U';
 	if (flags->type == 'c' && flags->promotion == 'l')
 		flags->type = 'C';
 	if (flags->type == 's' && flags->promotion == 'l')

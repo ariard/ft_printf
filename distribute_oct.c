@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:20:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 16:15:33 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 00:41:48 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			ft_print_oct4(t_flag *flags)
 
 int			ft_print_oct1(t_flag *flags, va_list ap)
 {
-	unsigned long long int	i;
+	unsigned long long		i;
 	char					new[1024];
 	int						len;
 
@@ -55,7 +55,7 @@ int			ft_print_oct1(t_flag *flags, va_list ap)
 
 int			ft_print_oct2(t_flag *flags, va_list ap)
 {
-	unsigned long long int 	i;
+	unsigned long long		 i;
 	char					new[1024];
 	int						len;
 	int						cp;

@@ -301,16 +301,18 @@ int		main(void)
 	len2 = 0;
 	len = 0;
 
-	int	i;
+	int	c;
 	char	*s;
 
 	s = setlocale(LC_ALL, "");
-	len = ft_printf("{%-5p}", 0);
+	len = ft_printf("%ju", ULONG_MAX);
 	ft_putchar(10);
-	len2 = printf("{%-5p}", 0);
+	len2 = printf("%ju", ULONG_MAX);
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);
 	ft_putnbr(len2);
+
+
 	return (0);
 }

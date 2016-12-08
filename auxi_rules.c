@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 23:51:02 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 00:52:44 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ unsigned long long int	ft_get_unsignvalue(t_flag *flags, va_list ap)
 	else if (flags->promotion == 'w' && flags->type != 'O' && flags->type != 'D'
 		&& flags->type != 'U') 
 		return ((unsigned char)va_arg(ap, int));	
-	else
+	else if (flags->type == 'U' || flags->type == 'O' || flags->type == 'X' || flags->type == 'x')
 		return (va_arg(ap, unsigned long long int));
+	else
+		return (va_arg(ap, unsigned int));
 	return (0);
 }
 
