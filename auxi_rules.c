@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 18:32:38 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/08 23:51:02 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int						ft_print_minwidth(t_flag *flags, int len)
 	if (flags->max_width > 0  && !flags->minus && flags->type != 's'
 		&& flags->type != 'S')
 		len += flags->max_width;
-	if ((flags->sign || flags->space) && !flags->minus)
+	if ((flags->sign || flags->space) && !flags->minus && flags->type != 'p')
 		len += 1;
 	if (flags->hex && (flags->type == 'x' || flags->type == 'X'))
 		len += 2;

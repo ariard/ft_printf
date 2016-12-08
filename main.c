@@ -305,9 +305,9 @@ int		main(void)
 	char	*s;
 
 	s = setlocale(LC_ALL, "");
-	len = ft_printf("{% 20p}", &i);
+	len = ft_printf("{%-5p}", 0);
 	ft_putchar(10);
-	len2 = printf("{% 20p}", &i);
+	len2 = printf("{%-5p}", 0);
 	printf("\n\n");
 	ft_putnbr(len);
 	ft_putchar(10);

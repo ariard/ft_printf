@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 17:26:20 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/08 23:51:13 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int				ft_printf(const char *format, ...)
 				if (len == 0 && !*(format + 1))
 					return (0);
 				if (flags->invalid)
-					len++;	
+					len++;
 				len2 = ft_print_formated_argument(ap, tab, flags);
 				n += len2;
 				format += len + 1;
