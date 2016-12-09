@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 23:49:57 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 14:24:31 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 22:35:26 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int			ft_print_pointer4(t_flag *flags)
 {
 	int		len;
 
-	len = 0;
+	len = 2;
 	if (flags->min_width)
 		len += ft_print_minwidth(flags, len);
-	len += ft_print_hex(flags);
+	ft_print_hex(flags);
 	if (flags->max_width)
 		len += ft_print_maxwidth(flags, len);
 	if (flags->max_width)

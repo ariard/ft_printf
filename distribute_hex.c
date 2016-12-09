@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:52:02 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 19:08:59 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 22:06:21 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int			ft_print_hex1(t_flag *flags, va_list ap)
 	i = ft_get_unsignvalue(flags, ap);
 	ft_conv_hex(i, new);
 	len = ft_strlen(new);
+	if (i == 0)
+		flags->hex = 0;
 	if (flags->max_width)
 		flags->max_width -= len;
 	if (i == 0 && (flags->nullwidth || flags->max_width))
@@ -58,6 +60,8 @@ int			ft_print_hex2(t_flag *flags, va_list ap)
 	i = ft_get_unsignvalue(flags, ap);
 	ft_conv_hex(i, new);
 	len = ft_strlen(new);
+	if (i == 0)
+		flags->hex = 0;
 	if (flags->max_width)	
 		flags->max_width -= len;
 	if (i == 0 && (flags->nullwidth || flags->max_width))
@@ -81,6 +85,8 @@ int			ft_print_hex3(t_flag *flags, va_list ap)
 	i = ft_get_unsignvalue(flags, ap);
 	ft_conv_hex(i, new);
 	len = ft_strlen(new);
+	if (i == 0)
+		flags->hex = 0;
 	if (flags->max_width)	
 		flags->max_width -= len;
 	if (i == 0 && (flags->nullwidth || flags->max_width))
