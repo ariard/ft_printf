@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:04:25 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 19:10:13 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 20:52:24 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int			ft_distribute_long(t_flag *flags, va_list ap)
 	if (flags->minus)
 		n += ft_print_long1(flags, ap);
 	else if (flags->zero)
-		n += ft_print_long2(flags, ap);
+		n += ft_print_long5(flags, ap);
 	else
 		n += ft_print_long2(flags, ap);
 	return (n);

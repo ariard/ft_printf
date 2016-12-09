@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 19:19:58 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 21:34:04 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int						ft_print_minwidth(t_flag *flags, int len)
 	int		n;
 
 	n = 0;
-	if (flags->max_width > 0 && flags->type != 's' && flags->type != 'S')
+	if (flags->max_width > 0 && flags->type != 's' && flags->type != 'S' && flags->type != 'c' && flags->type != 'C')
 		len += flags->max_width;
 	if ((flags->sign || flags->space) && flags->type != 'p' && !flags->zero)
 		len += 1;
@@ -76,8 +76,16 @@ int						ft_print_maxwidth(t_flag *flags, int len)
 	if ((len = flags->max_width) > 0) 
 		{
 			n += len;
-			while (len--) 
-				ft_putchar(48);
+			if (flags->type != 'c')
+				while (len--) 
+					ft_putchar(48);
+			else
+			{
+				len -= 1;
+				n = len;
+				while (len--)
+					ft_putchar(32);
+			}
 		}
 	return (n);
 }
@@ -90,7 +98,7 @@ int						ft_print_sign(t_flag *flags, long long int i)
 	if (flags->sign && i >= 0)
 		n += ft_putchar('+');
 	else if ((flags->space == ' ' && i >= 0) || (flags->space == ' ' 
-		&& i < 0 && flags->min_width))
+		&& i < 0 && flags->min_width && flags->type != 'D'))
 		n += ft_putchar(' ');
 	return (n);
 }

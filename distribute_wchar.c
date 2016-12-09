@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 15:55:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 14:07:02 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 21:39:30 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,20 @@ int			ft_print_wchar1(t_flag *flags, va_list ap)
 	wchar_t				w;
 	int					len;
 
-	len = 0;
+
 	w = va_arg(ap, wchar_t);
+	if (w > 127)
+		len = ft_sizewchar(w);
+	else
+		len = 1;
 	if (w == 0 && (flags->nullwidth || flags->max_width))
 		return (ft_print_wchar4(flags));
 	if (w < 128)
-		len += ft_putchar((char)w);
+		ft_putchar((char)w);
 	else
-		len += ft_putwchar(w);
+		ft_putwchar(w);
 	if (flags->min_width)
 		len += ft_print_minwidth_minus(flags, len);
-	if (w == 0)
-		len++;
 	return (len);
 }
 
@@ -50,18 +52,19 @@ int			ft_print_wchar2(t_flag *flags, va_list ap)
 	wchar_t				w;
 	int					len;
 
-	len = 0;
 	w = va_arg(ap, wchar_t);
+	if (w > 127)
+		len = ft_sizewchar(w);
+	else
+		len = 1;
 	if (w == 0 && (flags->nullwidth || flags->max_width))
 		return (ft_print_wchar4(flags));
 	if (flags->min_width)
 		len += ft_print_minwidth(flags, len);
 	if (w < 128)
-		len += ft_putchar((char)w);
+		ft_putchar((char)w);
 	else 
-		len += ft_putwchar(w);
-	if (w == 0)
-		len++;
+		ft_putwchar(w);
 	return (len);
 }
 

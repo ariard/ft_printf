@@ -6,7 +6,7 @@
 /*   By: gdidier <gdidier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/27 12:50:14 by gdidier           #+#    #+#             */
-/*   Updated: 2016/12/09 20:23:59 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 21:39:44 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
  
@@ -1796,8 +1796,8 @@ int             main()
             test_printf("%6.2D\n", -346);
             test_printf("%8.0D\n", -346);
             test_printf("%0.8D\n", -346);
-            test_printf("%3.7D\n", -346);
-            test_printf("%7.3D\n", -346);
+            test_printf("%3.7D\n", -346); 
+		   	test_printf("%7.3D\n", -346);
             test_printf("%2.6D\n", 346);
             test_printf("%7.1D\n", 346);
             test_printf("%5.3D\n", 346);
@@ -2072,7 +2072,6 @@ int             main()
             test_printf("%03.4hD\n", -4);
             test_printf("%03.4hD\n", -100);
             test_printf("%03.4hD\n", -1000);
-
                test_printf("%hD\n", -4294967299);
             test_printf("%hD\n", -4294967299);
             test_printf("%hD\n", 4294967299);
@@ -3330,7 +3329,7 @@ int             main()
 
 #ifdef HAS_c
     /** % c ***/ 
-          /*  test_printf("%c\n", 'a');
+           test_printf("%c\n", 'a');
             test_printf("%c\n", 'A');
             test_printf("%c\n", -'a');
             test_printf("%c\n", 127);
@@ -3340,9 +3339,9 @@ int             main()
             test_printf("%3c\n", 'A');
             test_printf("%3c\n", -'a');
             test_printf("%3c\n", 127);
-            test_printf("%3c\n", -128);*/
+            test_printf("%3c\n", -128);
 			test_printf("null %c and text", 0);
-            /*test_printf("%3c\n", 0);
+            test_printf("%3c\n", 0);
             test_printf("%6c\n", 'a');
             test_printf("%-3c\n", 'a');
             test_printf("%-3c\n", 'A');
@@ -3362,14 +3361,13 @@ int             main()
             test_printf("%5.3c\n", '0');
             test_printf("%00.3c\n", '0');
             test_printf("%01.3c\n", '0');
-            test_printf("%03.3c\n", '0');
+            test_printf("%05.3c\n", '0');
             test_printf("%03.3c\n", 256);
             test_printf("%03.3c\n", 310);
             test_printf("%03.3c\n", -'a');
             test_printf("%03.3c|\n", 0);
             test_printf("{%3c}", 0);
-            test_printf("{%03c}", 0);*/
-			return (0);
+            test_printf("{%03c}", 0);	
             #ifdef FLAG_H
              test_printf("%6hc\n", 'a');
             test_printf("%hc\n", 'a');
