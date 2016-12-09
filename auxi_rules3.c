@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:54:52 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 18:51:54 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 14:22:04 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,17 @@ size_t		ft_strwlen_max(wchar_t *w, int cp)
 	}
 	return (len);
 }
+
+int			ft_print_minwidth_minus(t_flag *flags, int len)
+{
+	int		n;
+
+	n = 0;
+	if ((len = flags->min_width - len) > 0)
+	{
+		n += len;
+		while (len--)
+			ft_putchar(32);
+	}	
+	return (n);
+}	

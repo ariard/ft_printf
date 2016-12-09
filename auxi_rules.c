@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 00:52:44 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 14:35:36 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ unsigned long long int	ft_get_unsignvalue(t_flag *flags, va_list ap)
 	else if (flags->promotion == 'w' && flags->type != 'O' && flags->type != 'D'
 		&& flags->type != 'U') 
 		return ((unsigned char)va_arg(ap, int));	
-	else if (flags->type == 'U' || flags->type == 'O' || flags->type == 'X' || flags->type == 'x')
+	else if (flags->type == 'U' || flags->type == 'O')
+		return (va_arg(ap, unsigned long long int));
+	else if ((flags->type == 'x' || flags->type == 'X') && (flags->promotion == 'l' || flags->promotion == 'y' || flags->promotion == 'z' || flags->promotion == 'j'))
 		return (va_arg(ap, unsigned long long int));
 	else
 		return (va_arg(ap, unsigned int));
@@ -45,14 +47,13 @@ int						ft_print_minwidth(t_flag *flags, int len)
 	int		n;
 
 	n = 0;
-	if (flags->max_width > 0  && !flags->minus && flags->type != 's'
-		&& flags->type != 'S')
+	if (flags->max_width > 0 && flags->type != 's' && flags->type != 'S')
 		len += flags->max_width;
-	if ((flags->sign || flags->space) && !flags->minus && flags->type != 'p')
+	if ((flags->sign || flags->space) && flags->type != 'p' && !flags->zero)
 		len += 1;
-	if (flags->hex && (flags->type == 'x' || flags->type == 'X'))
+	if (flags->hex && (flags->type == 'x' || flags->type == 'X') && !flags->zero)
 		len += 2;
-	if (flags->hex && (flags->type == 'o' || flags->type == 'O'))
+	if (flags->hex && (flags->type == 'o' || flags->type == 'O') && !flags->zero)
 		len += 1;
 	if ((len = flags->min_width - len) > 0)
 	{

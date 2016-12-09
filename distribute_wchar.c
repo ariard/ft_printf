@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 15:55:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 17:15:57 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 14:07:02 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int			ft_print_wchar1(t_flag *flags, va_list ap)
 	else
 		len += ft_putwchar(w);
 	if (flags->min_width)
-		len += ft_print_minwidth(flags, len);
+		len += ft_print_minwidth_minus(flags, len);
 	if (w == 0)
 		len++;
 	return (len);

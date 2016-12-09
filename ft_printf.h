@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 18:39:49 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 14:10:31 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,43 +48,27 @@ typedef struct		s_print
 	int				(*f)(t_flag *, va_list);
 }					t_print;
 
-int		ft_printf(const char *format, ...);
+int					ft_printf(const char *format, ...);
 
-int		ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags);
+int					ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags);
 
-int		ft_parse_flag(const char *format, t_flag *flags, t_print *tab[]);
+int					ft_parse_flag(const char *format, t_flag *flags, t_print *tab[]);
 
-int		ft_parse_prom(const char *format, t_flag *flags, t_print *tab[]);
+int					ft_parse_prom(const char *format, t_flag *flags, t_print *tab[]);
 
-int		ft_parse_type(const char *format, t_flag *flags, t_print *tab[]);
+int					ft_parse_type(const char *format, t_flag *flags, t_print *tab[]);
 
-void	ft_solve_conflict(t_flag *flags, const char *format);
+void				ft_solve_conflict(t_flag *flags, const char *format);
 
-int		ft_print_string(t_flag *flags, va_list ap);
-
-int		ft_print_char(t_flag *flags, va_list ap);
-
-int		ft_print_pointer(t_flag *flags, va_list ap);
-
-int		ft_print_pourcentage(t_flag *flags, va_list ap);
-
-int		ft_print_int(t_flag *flags, va_list ap);
-
-int		ft_print_octal(t_flag *flags, va_list ap);
-
-int		ft_print_unsigned(t_flag *flags, va_list ap);
-
-int		ft_print_hex(t_flag *flags);
-
-int		ft_print_long(t_flag *flags, va_list ap);
-
-int		ft_print_short(t_flag *flags, va_list ap);
+int					ft_print_hex(t_flag *flags);
 
 long long int		ft_get_signvalue(t_flag *flags, va_list ap);
 
 unsigned long long	ft_get_unsignvalue(t_flag *flags, va_list ap);
 
 int					ft_print_minwidth(t_flag *flags, int len);
+
+int					ft_print_minwidth_minus(t_flag *flags, int len);
 
 int					ft_print_maxwidth(t_flag *flags, int len);
 

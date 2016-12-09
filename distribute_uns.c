@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:04:36 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 00:40:05 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 14:04:57 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int			ft_print_uns1(t_flag *flags, va_list ap)
 		len += ft_print_maxwidth(flags, len);
 	ft_putunsnbr(i);
 	if (flags->min_width)
-		len += ft_print_minwidth(flags, len);
+		len += ft_print_minwidth_minus(flags, len);
 	return (len);
 }
 
