@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 16:01:58 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 14:35:36 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 19:19:58 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ int						ft_print_sign(t_flag *flags, long long int i)
 	n = 0;
 	if (flags->sign && i >= 0)
 		n += ft_putchar('+');
-	else if (flags->space == ' ' && i >= 0)
+	else if ((flags->space == ' ' && i >= 0) || (flags->space == ' ' 
+		&& i < 0 && flags->min_width))
 		n += ft_putchar(' ');
 	return (n);
 }

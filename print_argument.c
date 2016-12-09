@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 23:02:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 23:17:12 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 17:31:17 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int				ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags)
 	int			i;
 	int 		len;
 
-	i = 5;
+	i = 0;
 	len = 0;
-	while (i < 21)
+	while (i < 15)
 	{
 		if (flags->type == tab[i]->c)
 			len = tab[i]->f(flags, ap);

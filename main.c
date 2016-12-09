@@ -15,10 +15,11 @@ int		main(void)
 	char	*s;
 
 	s = setlocale(LC_ALL, "");
-	len = ft_printf("%+03d", 0);
+	len = ft_printf("%+03d\n", 1);
 	ft_putchar(10);
-	len2 = printf("%+03d", 0);
+	len2 = printf("%+03d\n", 1);
 	printf("\n\n");
+	ft_putchar(10);
 	ft_putnbr(len);
 	ft_putchar(10);
 	ft_putnbr(len2);

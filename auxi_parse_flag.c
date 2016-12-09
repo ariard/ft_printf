@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 13:34:37 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/09 17:11:51 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int				ft_parse_prom(const char *format, t_flag *flags, t_print *tab[])
 	int			i;
 
 	flags->promotion = 0;
-	i = 20;
+	i = 15;
 	if (*format == 'l' && *(format + 1) == 'l')
 	{
 		flags->promotion = 'y';
@@ -29,7 +29,7 @@ int				ft_parse_prom(const char *format, t_flag *flags, t_print *tab[])
 		flags->promotion = 'w';
 		return (2);
 	}
-	while (i < 26)
+	while (i < 21)
 	{
 		if (tab[i]->c == *format)
 			flags->promotion = *format;
@@ -44,8 +44,8 @@ int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
 {
 	int			i;
 
-	i = 5;
-	while (i < 20)
+	i = 0;
+	while (i < 15)
 	{
 		if (tab[i]->c == *format)
 			flags->type = *format;
