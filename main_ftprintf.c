@@ -6,7 +6,7 @@
 /*   By: gdidier <gdidier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/27 12:50:14 by gdidier           #+#    #+#             */
-/*   Updated: 2016/12/09 22:06:18 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 13:15:23 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
  
@@ -6753,7 +6753,7 @@ int             main()
             test_printf("%.10o\n", 8, -1);
              test_printf("%#-+03o\n", 84);
             test_printf("%#-+03o\n", 1);
-            test_printf("%#-+03o\n", 0);
+            test_printf("%#-+03o\n", 0);	
             #ifdef FLAG_H
                    test_printf("%ho\n", -512);
                   test_printf("%ho\n", -18);

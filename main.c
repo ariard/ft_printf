@@ -15,9 +15,9 @@ int		main(void)
 	char	*s;
 
 	s = setlocale(LC_ALL, "");
-	len = ft_printf("%3.p\n", 0);
+	len = ft_printf("%#.10o\n", 0);
 	ft_putchar(10);
-	len2 = printf("%3.p\n", 0);
+	len2 = printf("%#.10o\n", 0);
 	printf("\n\n");
 	ft_putchar(10);
 	ft_putnbr(len);

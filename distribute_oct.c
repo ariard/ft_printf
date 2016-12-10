@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:20:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 22:19:29 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 13:20:16 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			ft_print_oct4(t_flag *flags)
 	len = 0;
 	if (flags->min_width)
 		len += ft_print_minwidth(flags, len);
-	if (flags->hex)
+	if (flags->hex && !flags->max_width)
 		len += ft_print_hex(flags);
 	if (flags->max_width)
 		len += ft_print_maxwidth(flags, len);
