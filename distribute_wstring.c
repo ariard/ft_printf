@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:28:33 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 15:26:46 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 13:32:27 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			ft_print_wstring1(t_flag *flags, va_list ap)
 		len = 0;
 	if (w == NULL && (flags->nullwidth || flags->max_width))
 		return (ft_print_wstring4(flags));
-	if (w != NULL && flags->max_width && flags->max_width < (int)ft_strwlen(w)) 
+	if (w != NULL && flags->max_width && flags->max_width < (int)ft_strwlen(w))
 		ft_putwstr(w, flags->max_width);
 	else if (w != NULL && !flags->nullwidth)
 		ft_putwstr(w, -1);
@@ -70,7 +70,7 @@ int			ft_print_wstring2(t_flag *flags, va_list ap)
 	if (flags->min_width && w != NULL)
 		len += ft_print_minwidth(flags, len);
 	if (w != NULL && flags->max_width && flags->max_width < (int)ft_strwlen(w))
-		ft_putwstr(w, flags->max_width); 
+		ft_putwstr(w, flags->max_width);
 	else if (w != NULL && !flags->nullwidth)
 		ft_putwstr(w, -1);
 	else if (w == NULL && !flags->nullwidth)

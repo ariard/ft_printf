@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 19:52:29 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 00:23:51 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 14:32:53 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ int					ft_putstrn(char const *s, int n);
 
 void				ft_putendl(char const *s);
 
-void				ft_putnbr(long long int  n);
+void				ft_putnbr(long long int n);
 
 void				ft_putunsnbr(unsigned long long n);
 

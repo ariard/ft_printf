@@ -6,19 +6,12 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 20:15:27 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 22:42:21 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 14:31:07 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
-
-int				ft_nothing(t_flag *flags, va_list ap)
-{
-	(void)flags;
-	(void)ap;
-	return (0);
-}
 
 t_print			*ft_create_print(char c, int (*f)(t_flag *, va_list))
 {
@@ -50,88 +43,56 @@ void			ft_gen_tab_print(t_print *tab[])
 	tab[12] = ft_create_print('C', &ft_distribute_wchar);
 	tab[13] = ft_create_print('c', &ft_distribute_char);
 	tab[14] = ft_create_print('%', &ft_distribute_pourcent);
-	tab[15] = ft_create_print('y', &ft_nothing);
-	tab[16] = ft_create_print('w', &ft_nothing);
-	tab[17] = ft_create_print('l', &ft_nothing);
-	tab[18] = ft_create_print('h', &ft_nothing);
-	tab[19] = ft_create_print('z', &ft_nothing);
-	tab[20] = ft_create_print('j', &ft_nothing);
+	tab[15] = ft_create_print('y', NULL);
+	tab[16] = ft_create_print('w', NULL);
+	tab[17] = ft_create_print('l', NULL);
+	tab[18] = ft_create_print('h', NULL);
+	tab[19] = ft_create_print('z', NULL);
+	tab[20] = ft_create_print('j', NULL);
 }
 
-t_flag			*ft_init_flags(void)
+int				ft_print_all(const char *format, va_list ap,
+		t_flag *flags, t_print *tab[])
 {
-	t_flag		*flags;
-
-	flags = ft_memalloc(sizeof(t_flag));
-	flags->sign = 0;
-	flags->space = 0;
-	flags->zero = 0;
-	flags->minus = 0;
-	flags->hex = 0;
-	flags->min_width = 0;
-	flags->max_width = 0;
-	flags->nullwidth = 0;
-	flags->type = 0;
-	flags->promotion = 0;
-	flags->invalid = 0;
-	return (flags);
-}
-
-void			ft_clean_flags(t_flag *flags)
-{
-	flags->sign = 0;
-	flags->space = 0;
-	flags->zero = 0;
-	flags->minus = 0;
-	flags->hex = 0;
-	flags->min_width = 0;
-	flags->max_width = 0;
-	flags->nullwidth = 0;
-	flags->type = 0;
-	flags->promotion = 0;
-	flags->invalid = 0;
-	free(flags);
-	flags = NULL;
-}
-
-int				ft_printf(const char *format, ...)
-{
-	va_list 	ap;
 	int			len;
 	int			len2;
 	int			n;
-	int			i;
-
-	t_print		*tab[22];
-	t_flag		*flags;
 
 	n = 0;
-	ft_bzero(tab, 21);
-	ft_gen_tab_print(tab);
-	flags = NULL;
-	va_start(ap, format);	
-	len = 0;
-	len2 = 0;
 	while (*format)
 	{
 		if (*format == '%')
-			{
-				flags = ft_init_flags();
-				len = ft_parse_flag(format, flags, tab);
-				if (len == 0 && !*(format + 1))
-					return (0);
-				if (flags->invalid)
-					len++;
-				len2 = ft_print_formated_argument(ap, tab, flags);
-				n += len2;
-				format += len + 1;
-				ft_clean_flags(flags);
-			}
+		{
+			flags = ft_init_flags();
+			len = ft_parse_flag(format, flags, tab);
+			if (flags->invalid)
+				len++;
+			len2 = ft_print_formated_argument(ap, tab, flags);
+			n += len2;
+			format += len + 1;
+			ft_clean_flags(flags);
+		}
 		len = ft_strlenchr(format, '%');
 		write(1, format, len);
 		n += len;
 		format += len;
 	}
+	return (n);
+}
+
+int				ft_printf(const char *format, ...)
+{
+	va_list		ap;
+	int			n;
+	int			i;
+	t_print		*tab[22];
+	t_flag		*flags;
+
+	ft_bzero(tab, 21);
+	ft_gen_tab_print(tab);
+	flags = NULL;
+	va_start(ap, format);
+	n = ft_print_all(format, ap, flags, tab);
 	i = 0;
 	while (i < 21)
 		ft_memdel((void **)&tab[i++]);

@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 23:49:57 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 22:42:25 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 14:07:14 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			ft_print_pointer1(t_flag *flags, va_list ap)
 	char				new[1024];
 	int					len;
 
-	p = va_arg(ap, void *); 
+	p = va_arg(ap, void *);
 	ft_conv_hex((unsigned long long int)p, new);
 	len = ft_strlen(new);
 	if (flags->max_width)
@@ -59,7 +59,7 @@ int			ft_print_pointer2(t_flag *flags, va_list ap)
 	ft_conv_hex((unsigned long long int)i, new);
 	len = ft_strlen(new);
 	if (flags->max_width)
-		flags->max_width -= len; 
+		flags->max_width -= len;
 	if (i == 0 && flags->nullwidth)
 		return (ft_print_pointer4(flags));
 	if (flags->min_width)
@@ -81,7 +81,7 @@ int			ft_print_pointer3(t_flag *flags, va_list ap)
 	ft_conv_hex((unsigned long long int)i, new);
 	len = ft_strlen(new);
 	if (flags->max_width)
-		flags->max_width -= len; 
+		flags->max_width -= len;
 	if (i == 0 && flags->nullwidth)
 		return (ft_print_pointer4(flags));
 	ft_print_hex(flags);
@@ -93,7 +93,6 @@ int			ft_print_pointer3(t_flag *flags, va_list ap)
 	ft_putstr(new);
 	return (len);
 }
-
 
 int			ft_distribute_pointer(t_flag *flags, va_list ap)
 {

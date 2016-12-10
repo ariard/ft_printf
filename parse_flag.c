@@ -6,20 +6,21 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 17:48:44 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 15:32:38 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 14:05:32 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int				ft_parse_precedence(const char *format, t_flag *flags, t_print *tab[])
+int				ft_parse_pre(const char *format, t_flag *flags, t_print *tab[])
 {
 	int			len;
 
 	(void)tab;
 	len = 0;
-	while (*format && (*format == '#' || *format == '0' || *format == '+' || *format == ' ' || *format == '-'))
+	while (*format && (*format == '#' || *format == '0'
+			|| *format == '+' || *format == ' ' || *format == '-'))
 	{
 		if (*format == '#')
 			flags->hex = '#';
@@ -39,7 +40,7 @@ int				ft_parse_precedence(const char *format, t_flag *flags, t_print *tab[])
 
 int				ft_parse_minwidth(const char *format, t_flag *flags)
 {
-	int 		len;
+	int			len;
 	char		new[1024];
 	char		*tmp;
 
@@ -61,7 +62,7 @@ int				ft_parse_minwidth(const char *format, t_flag *flags)
 
 int				ft_parse_maxwidth(const char *format, t_flag *flags)
 {
-	int 		len;
+	int			len;
 	char		new[1024];
 	char		*tmp;
 
@@ -87,6 +88,21 @@ int				ft_parse_maxwidth(const char *format, t_flag *flags)
 	return (len);
 }
 
+int				ft_parse_flag2(const char *format, t_flag *flags)
+{
+	int			n;
+
+	n = ft_parse_maxwidth(format, flags);
+	if (n == 0 && *format == '.')
+	{
+		n = 1;
+		flags->nullwidth = 1;
+	}
+	if (n == 2 && !flags->max_width)
+		flags->nullwidth = 1;
+	return (n);
+}
+
 int				ft_parse_flag(const char *format, t_flag *flags, t_print *tab[])
 {
 	int			len;
@@ -96,28 +112,21 @@ int				ft_parse_flag(const char *format, t_flag *flags, t_print *tab[])
 	if (*(format + 1) == 0)
 		return (0);
 	format++;
-	n = ft_parse_precedence(format, flags, tab);
+	n = ft_parse_pre(format, flags, tab);
 	format += n;
 	len += n;
 	n = ft_parse_minwidth(format, flags);
 	format += n;
 	len += n;
-	n = ft_parse_maxwidth(format, flags);
-	if (n == 0 && *format == '.')
-	{
-		n = 1;
-		flags->nullwidth = 1;
-	}
-	if (n == 2 && !flags->max_width)
-		flags->nullwidth = 1;
+	n = ft_parse_flag2(format, flags);
 	format += n;
 	len += n;
-	n = ft_parse_prom(format, flags, tab);	
+	n = ft_parse_prom(format, flags, tab);
 	format += n;
 	len += n;
 	n = ft_parse_type(format, flags, tab);
 	format += n;
 	len += n;
-	ft_solve_conflict(flags, format);
+	ft_solve_conflict(flags);
 	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:20:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/10 13:20:16 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 14:07:09 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			ft_print_oct1(t_flag *flags, va_list ap)
 	i = ft_get_unsignvalue(flags, ap);
 	ft_conv_oct(i, new);
 	len = ft_strlen(new);
-	if (i == 0 && !flags->max_width && !flags->nullwidth) 
+	if (i == 0 && !flags->max_width && !flags->nullwidth)
 		flags->hex = 0;
 	if (flags->max_width)
 		flags->max_width -= len;
@@ -55,7 +55,7 @@ int			ft_print_oct1(t_flag *flags, va_list ap)
 
 int			ft_print_oct2(t_flag *flags, va_list ap)
 {
-	unsigned long long		 i;
+	unsigned long long		i;
 	char					new[1024];
 	int						len;
 	int						cp;

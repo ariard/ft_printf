@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:22:02 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 22:42:29 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 13:38:07 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int			ft_print_hex(t_flag *flags)
 	int		n;
 
 	n = 0;
-	if (flags->hex && (flags->type == 'o' || flags->type == 'O')) 
+	if (flags->hex && (flags->type == 'o' || flags->type == 'O'))
 		n += ft_putchar('0');
-	else if (flags->hex && flags->type == 'x') 
+	else if (flags->hex && flags->type == 'x')
 		n += ft_putstr("0x");
-	else if (flags->type == 'p') 
+	else if (flags->type == 'p')
 		n += ft_putstr("0x");
 	else if (flags->hex && flags->type == 'X')
 		n += ft_putstr("0X");
@@ -62,7 +62,7 @@ int			ft_print_wchar(char *tab, wchar_t w, int len)
 	int		len2;
 	int		n;
 
-	ft_bzero(to_print, 1024);	
+	ft_bzero(to_print, 1024);
 	ft_bzero(s, 1024);
 	ft_itoa_binary((int)w, s);
 	ft_fill(tab, s, to_print, len);
@@ -108,11 +108,11 @@ int			ft_putwchar(wchar_t w)
 	return (n);
 }
 
-int			ft_putwstr(wchar_t	*w, int cp)
+int			ft_putwstr(wchar_t *w, int cp)
 {
 	int		n;
 
-	n  = 0;
+	n = 0;
 	if ((int)ft_strwlen(w) > cp && cp != -1)
 		while ((cp -= (int)ft_sizewchar(*w)) >= 0)
 		{

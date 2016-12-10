@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:50:10 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 21:38:45 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 14:37:25 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,6 @@
 # include "libft/includes/libft.h"
 # include <stdarg.h>
 # include <wchar.h>
-
-
-#define RESET "\x1B[0m"
-#define RED	"\x1B[31m"
-#define GRN "\x1B[32m"
-#define YEL "\x1B[33m"
-#define BLU "\x1B[34m"
-#define MAG "\x1B[35m"
-#define CYN "\x1B[36m"
-#define WHT "\x1B[37m"
 
 typedef struct		s_flag
 {
@@ -50,15 +40,19 @@ typedef struct		s_print
 
 int					ft_printf(const char *format, ...);
 
-int					ft_print_formated_argument(va_list ap, t_print *tab[], t_flag *flags);
+int					ft_print_formated_argument(va_list ap, t_print *tab[],
+		t_flag *flags);
 
-int					ft_parse_flag(const char *format, t_flag *flags, t_print *tab[]);
+int					ft_parse_flag(const char *format, t_flag *flags,
+		t_print *tab[]);
 
-int					ft_parse_prom(const char *format, t_flag *flags, t_print *tab[]);
+int					ft_parse_prom(const char *format, t_flag *flags,
+		t_print *tab[]);
 
-int					ft_parse_type(const char *format, t_flag *flags, t_print *tab[]);
+int					ft_parse_type(const char *format, t_flag *flags,
+		t_print *tab[]);
 
-void				ft_solve_conflict(t_flag *flags, const char *format);
+void				ft_solve_conflict(t_flag *flags);
 
 int					ft_print_hex(t_flag *flags);
 
@@ -109,5 +103,9 @@ size_t				ft_strwlen(wchar_t *w);
 size_t				ft_sizewchar(wchar_t w);
 
 size_t				ft_strwlen_max(wchar_t *w, int cp);
+
+t_flag				*ft_init_flags(void);
+
+void				ft_clean_flags(t_flag *flags);
 
 #endif

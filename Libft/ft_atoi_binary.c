@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 00:19:57 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/08 00:23:24 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 14:34:26 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ static int		ft_recursive_power(int nb, int power)
 
 int				ft_atoi_binary(char *s)
 {
-	unsigned long long 	nb;
+	unsigned long long	nb;
 	int					rank;
 
 	nb = 0;
 	rank = ft_strlen(s) - 1;
-	while(*s >= '0' && *s <= '9')
+	while (*s >= '0' && *s <= '9')
 	{
 		nb += (*s - '0') * ft_recursive_power(2, rank);
 		s++;

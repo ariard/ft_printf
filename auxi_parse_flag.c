@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 15:44:41 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 17:11:51 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 14:01:32 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,34 @@ int				ft_parse_type(const char *format, t_flag *flags, t_print *tab[])
 	return (1);
 }
 
-void				ft_solve_conflict(t_flag *flags, const char *format)
+void			ft_solve_conflict2(t_flag *flags)
 {
-	(void)format;
+	if ((flags->promotion == 'l' || flags->promotion == 'y')
+			&& (flags->type == 'd' || flags->type == 'i'))
+		flags->type = 'D';
+	if ((flags->promotion == 'l' || flags->promotion == 'y')
+			&& flags->type == 'u')
+		flags->type = 'U';
+	if ((flags->promotion == 'l' || flags->promotion == 'y')
+			&& flags->type == 'o')
+		flags->type = 'O';
+	if ((flags->promotion == 'j' || flags->promotion == 'z')
+			&& (flags->type == 'd' || flags->type == 'i'))
+		flags->type = 'D';
+	if ((flags->promotion == 'j' || flags->promotion == 'z')
+			&& flags->type == 'o')
+		flags->type = 'O';
+	if ((flags->promotion == 'j' || flags->promotion == 'z')
+			&& flags->type == 'u')
+		flags->type = 'U';
+	if (flags->type == 'c' && flags->promotion == 'l')
+		flags->type = 'C';
+	if (flags->type == 's' && flags->promotion == 'l')
+		flags->type = 'S';
+}
+
+void			ft_solve_conflict(t_flag *flags)
+{
 	if (flags->zero && flags->minus)
 		flags->zero = 0;
 	if (flags->space && flags->sign)
@@ -75,22 +100,5 @@ void				ft_solve_conflict(t_flag *flags, const char *format)
 		flags->hex = 0;
 	if (flags->zero && flags->max_width)
 		flags->zero = 0;
-	if ((flags->promotion == 'l' || flags->promotion == 'y') && (
-		flags->type == 'd' || flags->type == 'i' ))
-		flags->type = 'D';
-	if ((flags->promotion == 'l' || flags->promotion == 'y') && flags->type == 'u')
-		flags->type = 'U';
-	if ((flags->promotion == 'l' || flags->promotion == 'y') && flags->type == 'o')
-		flags->type = 'O';
-	if ((flags->promotion == 'j' || flags->promotion == 'z') 
-		&& (flags->type == 'd' || flags->type == 'i'))
-		flags->type = 'D';
-	if ((flags->promotion == 'j' || flags->promotion == 'z') && flags->type == 'o')
-		flags->type = 'O';
-	if ((flags->promotion == 'j' || flags->promotion == 'z') && flags->type == 'u')
-		flags->type = 'U';
-	if (flags->type == 'c' && flags->promotion == 'l')
-		flags->type = 'C';
-	if (flags->type == 's' && flags->promotion == 'l')
-		flags->type = 'S';
+	ft_solve_conflict2(flags);
 }

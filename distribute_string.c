@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:05:01 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 19:10:08 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 13:28:33 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			ft_print_string1(t_flag *flags, va_list ap)
 		len = 0;
 	if (s == NULL && (flags->nullwidth || flags->max_width))
 		return (ft_print_string4(flags));
-	if (s != NULL && flags->max_width && flags->max_width < (int)ft_strlen(s)) 
+	if (s != NULL && flags->max_width && flags->max_width < (int)ft_strlen(s))
 		ft_putstrn(s, flags->max_width);
 	else if (flags->nullwidth)
 		ft_putstrn(s, 0);

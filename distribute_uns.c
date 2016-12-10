@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 21:04:36 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/10 13:09:49 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 13:29:13 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			ft_print_uns4(t_flag *flags)
 
 int			ft_print_uns1(t_flag *flags, va_list ap)
 {
-	unsigned long long 		i;
+	unsigned long long		i;
 	int						len;
 
 	i = ft_get_unsignvalue(flags, ap);

@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 21:41:39 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/07 21:47:21 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 14:34:44 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char		*ft_itoa_binary(int n, char new[])
 {
 	char				s[1024];
 	int					index;
-	unsigned long long 	nb;
+	unsigned long long	nb;
 
 	if (n < 0)
 		return (0);

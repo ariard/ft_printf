@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:54:52 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 22:21:52 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 13:38:48 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ int			ft_print_minwidth_minus(t_flag *flags, int len)
 		n += len;
 		while (len--)
 			ft_putchar(32);
-	}	
+	}
 	return (n);
-}	
+}

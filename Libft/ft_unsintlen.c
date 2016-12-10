@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 14:33:15 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/04 18:53:51 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 14:33:33 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t				ft_unsintlen(unsigned long long int d)
 {
-	int				len;
+	int						len;
 	unsigned long long		nb;
 
 	len = 0;

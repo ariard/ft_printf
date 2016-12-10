@@ -6,7 +6,7 @@
 /*   By: ariard <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 15:55:04 by ariard            #+#    #+#             */
-/*   Updated: 2016/12/09 22:03:29 by ariard           ###   ########.fr       */
+/*   Updated: 2016/12/10 13:31:08 by ariard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int			ft_print_wchar1(t_flag *flags, va_list ap)
 {
 	wchar_t				w;
 	int					len;
-
 
 	w = va_arg(ap, wchar_t);
 	if (w > 127)
@@ -63,7 +62,7 @@ int			ft_print_wchar2(t_flag *flags, va_list ap)
 		len += ft_print_minwidth(flags, len);
 	if (w < 128)
 		ft_putchar((char)w);
-	else 
+	else
 		ft_putwchar(w);
 	return (len);
 }
